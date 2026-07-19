@@ -19,8 +19,8 @@ both files and verify the checksum before running it:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.0-public-preview.1/install.sh
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.0-public-preview.1/install.sh.sha256
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.1-public-preview.1/install.sh
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.1-public-preview.1/install.sh.sha256
   sha256sum -c install.sh.sha256
   sudo bash install.sh
 )
@@ -42,8 +42,8 @@ application or Docker on the Proxmox host:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.0-public-preview.1/proxmox-helper.sh
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.0-public-preview.1/proxmox-helper.sh.sha256
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.1-public-preview.1/proxmox-helper.sh
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.1-public-preview.1/proxmox-helper.sh.sha256
   sha256sum -c proxmox-helper.sh.sha256
   bash proxmox-helper.sh
 )
@@ -54,6 +54,14 @@ The helper defaults to a dedicated unprivileged LXC using DHCP. Run
 resource options. The command runs in a temporary subshell, so it returns to
 the original directory and removes its downloaded installer files when it
 finishes.
+
+## v0.9.1 public preview
+
+- Corrects BUY-order book quantities so DGB quote volume is never presented as
+  5TRAT availability. A bid for 1 5TRAT at 450 DGB now shows 1 5TRAT
+  available, a 1 5TRAT minimum and a 450 DGB total.
+- Keeps the v0.9.0 SmackBoard, three-byte extranonce, concurrent BUY/SELL and
+  independent electricity-tariff improvements.
 
 ## v0.9.0 public preview
 

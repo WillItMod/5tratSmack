@@ -1,0 +1,30 @@
+{
+  "application": "5tratSmack",
+  "version": "0.9.1-public-preview.1",
+  "channel": "public-preview",
+  "devStorePublished": false,
+  "installKeyRequired": false,
+  "architectures": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "components": [
+    "5trat-core",
+    "5tratsmack-ckpool",
+    "5tratsmack-upnp",
+    "5tratsmack-kdf",
+    "5tratsmack-app"
+  ],
+  "coreRelease": "v27.0.0-5trat-preview.1",
+  "privateSourceRevision": "743ed07fbe0032682a2d2bf94ce4644513fb7c99",
+  "stratumExtranonce2Bytes": 3,
+  "features": [
+    "correct base-asset quantities for buy-order book entries",
+    "active-chain coinbase leaderboard",
+    "one concurrent buy and sell order",
+    "partial maker fills",
+    "independent electricity tariff calibration"
+  ],
+  "status": "approved-for-direct-public-preview",
+  "notes": "Direct installer only. This release is not published to the 5tratumOS DEV store."
+}
