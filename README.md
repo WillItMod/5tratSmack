@@ -66,6 +66,8 @@ finishes.
 - Allows one live BUY order and one live SELL order at the same time. Duplicate
   orders on the same side remain blocked in Quick Trade, and active atomic
   settlements still pause new orders.
+- Lets users save their electricity tariff independently of the optional
+  fallback hashrate, including arbitrary positive decimal hashrates.
 
 Coinbase names are public labels rather than authenticated accounts. Two
 miners using the same name deliberately share one leaderboard row. Historical
