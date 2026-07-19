@@ -1,0 +1,21 @@
+{
+  "application": "5tratSmack",
+  "version": "0.8.9-public-preview.1",
+  "channel": "public-preview",
+  "devStorePublished": false,
+  "installKeyRequired": false,
+  "architectures": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "components": [
+    "5trat-core",
+    "5tratsmack-ckpool",
+    "5tratsmack-upnp",
+    "5tratsmack-kdf",
+    "5tratsmack-app"
+  ],
+  "coreRelease": "v27.0.0-5trat-preview.1",
+  "status": "approved-for-direct-public-preview",
+  "notes": "Direct installer only. This release is not published to the 5tratumOS DEV store."
+}
