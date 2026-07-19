@@ -14,12 +14,16 @@ The installer detects 64-bit AMD/Intel and ARM systems automatically. Download
 both files and verify the checksum before running it:
 
 ```bash
-workdir="$(mktemp -d)" &&
-cd "$workdir" &&
-curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/install.sh &&
-curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/install.sh.sha256 &&
-sha256sum -c install.sh.sha256 &&
-sudo bash install.sh
+(
+  set -Eeuo pipefail
+  workdir="$(mktemp -d)"
+  trap 'rm -rf "$workdir"' EXIT
+  cd "$workdir"
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/install.sh
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/install.sh.sha256
+  sha256sum -c install.sh.sha256
+  sudo bash install.sh
+)
 ```
 
 No installation key or GitHub account is required. Existing wallet and chain
@@ -33,17 +37,23 @@ LXC and installs 5tratSmack inside the guest; it does not install the
 application or Docker on the Proxmox host:
 
 ```bash
-workdir="$(mktemp -d)" &&
-cd "$workdir" &&
-curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/proxmox-helper.sh &&
-curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/proxmox-helper.sh.sha256 &&
-sha256sum -c proxmox-helper.sh.sha256 &&
-bash proxmox-helper.sh
+(
+  set -Eeuo pipefail
+  workdir="$(mktemp -d)"
+  trap 'rm -rf "$workdir"' EXIT
+  cd "$workdir"
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/proxmox-helper.sh
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/proxmox-helper.sh.sha256
+  sha256sum -c proxmox-helper.sh.sha256
+  bash proxmox-helper.sh
+)
 ```
 
 The helper defaults to a dedicated unprivileged LXC using DHCP. Run
 `bash proxmox-helper.sh --help` to see static-address, storage, bridge and
-resource options.
+resource options. The command runs in a temporary subshell, so it returns to
+the original directory and removes its downloaded installer files when it
+finishes.
 
 ## Architectures
 
