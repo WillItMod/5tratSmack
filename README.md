@@ -19,8 +19,8 @@ both files and verify the checksum before running it:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.1-public-preview.1/install.sh
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.1-public-preview.1/install.sh.sha256
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.2-public-preview.1/install.sh
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.2-public-preview.1/install.sh.sha256
   sha256sum -c install.sh.sha256
   sudo bash install.sh
 )
@@ -42,8 +42,8 @@ application or Docker on the Proxmox host:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.1-public-preview.1/proxmox-helper.sh
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.1-public-preview.1/proxmox-helper.sh.sha256
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.2-public-preview.1/proxmox-helper.sh
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.2-public-preview.1/proxmox-helper.sh.sha256
   sha256sum -c proxmox-helper.sh.sha256
   bash proxmox-helper.sh
 )
@@ -54,6 +54,14 @@ The helper defaults to a dedicated unprivileged LXC using DHCP. Run
 resource options. The command runs in a temporary subshell, so it returns to
 the original directory and removes its downloaded installer files when it
 finishes.
+
+## v0.9.2 public preview
+
+- Makes SmackBoard opt-in through a personalised coinbase name. Leaving the
+  bundled `/5tratSmack/ Home miner` message unchanged keeps the miner off every
+  leaderboard surface.
+- Excludes the legacy `ckpool!/mined by WillItMod on 5tratumOS/` identity from
+  rankings. These generic blocks remain available in the chain explorer.
 
 ## v0.9.1 public preview
 
