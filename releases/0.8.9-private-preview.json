@@ -1,0 +1,19 @@
+{
+  "application": "5tratSmack",
+  "version": "0.8.9-private-preview",
+  "channel": "private",
+  "devStorePublished": false,
+  "architectures": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "components": [
+    "5trat-core",
+    "5tratsmack-ckpool",
+    "5tratsmack-upnp",
+    "5tratsmack-kdf",
+    "5tratsmack-app"
+  ],
+  "status": "build-validation",
+  "notes": "Public metadata only. This is not an installation announcement."
+}
