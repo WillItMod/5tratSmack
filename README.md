@@ -19,8 +19,8 @@ both files and verify the checksum before running it:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/install.sh
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/install.sh.sha256
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.0-public-preview.1/install.sh
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.0-public-preview.1/install.sh.sha256
   sha256sum -c install.sh.sha256
   sudo bash install.sh
 )
@@ -42,8 +42,8 @@ application or Docker on the Proxmox host:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/proxmox-helper.sh
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.8.9-public-preview.1/proxmox-helper.sh.sha256
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.0-public-preview.1/proxmox-helper.sh
+  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.0-public-preview.1/proxmox-helper.sh.sha256
   sha256sum -c proxmox-helper.sh.sha256
   bash proxmox-helper.sh
 )
@@ -54,6 +54,24 @@ The helper defaults to a dedicated unprivileged LXC using DHCP. Run
 resource options. The command runs in a temporary subshell, so it returns to
 the original directory and removes its downloaded installer files when it
 finishes.
+
+## v0.9.0 public preview
+
+- Adds SmackBoard, a leaderboard calculated by each node from accepted
+  active-chain blocks. Rankings use the public coinbase name, block wins,
+  Blue/Pink/Gold proof mix and strongest target multiple.
+- Moves the bundled solo pool to the agreed three-byte extranonce2 default.
+  This changes the Stratum job protocol only; it does not reset the chain,
+  wallets or balances.
+- Allows one live BUY order and one live SELL order at the same time. Duplicate
+  orders on the same side remain blocked in Quick Trade, and active atomic
+  settlements still pause new orders.
+
+Coinbase names are public labels rather than authenticated accounts. Two
+miners using the same name deliberately share one leaderboard row. Historical
+hashrate cannot be reconstructed from the blockchain, so SmackBoard does not
+invent it; a node may show local worker attribution only when its own pool
+captured the winning share.
 
 ## Architectures
 
