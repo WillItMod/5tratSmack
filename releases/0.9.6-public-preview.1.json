@@ -1,0 +1,32 @@
+{
+  "application": "5tratSmack",
+  "version": "0.9.6-public-preview.1",
+  "channel": "public-preview",
+  "devStorePublished": true,
+  "installKeyRequired": false,
+  "architectures": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "components": [
+    "5trat-core",
+    "5tratsmack-ckpool",
+    "5tratsmack-upnp",
+    "5tratsmack-kdf",
+    "5tratsmack-app"
+  ],
+  "coreRelease": "v27.0.0-5trat-preview.1",
+  "privateSourceRevision": "6abea369e8ccd5baf0ba5c2c3f90a59de32a279e",
+  "prototypeMiningActivationHeight": 0,
+  "devCandidateMiningActivationHeight": 1000,
+  "stratumExtranonce2Bytes": 3,
+  "features": [
+    "seed-based peer-table fanout",
+    "default-route LAN listener discovery",
+    "safe shared-NAT public-address reporting",
+    "public-inbound verification for manual port forwards",
+    "keyless checksum-verified prototype updates"
+  ],
+  "status": "approved-for-direct-public-preview",
+  "notes": "Ungated direct prototype installer. Public addresses are advertised only after this host proves its own reachability."
+}
