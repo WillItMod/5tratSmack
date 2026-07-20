@@ -19,10 +19,11 @@ both files and verify the checksum before running it:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.2-public-preview.1/install.sh
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.2-public-preview.1/install.sh.sha256
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.4-public-preview.1
+  curl -fSLO "$base/install.sh"
+  curl -fSLO "$base/install.sh.sha256"
   sha256sum -c install.sh.sha256
-  sudo bash install.sh
+  sudo bash install.sh --release-tag v0.9.4-public-preview.1
 )
 ```
 
@@ -30,10 +31,31 @@ No installation key or GitHub account is required. Existing wallet and chain
 data are preserved during an update, but a verified encrypted wallet backup is
 still strongly recommended before installation.
 
+Prototype installations are explicitly ungated: their installer preserves
+`FIVETRAT_MINING_ACTIVATION_HEIGHT=0`. The separately staged 5tratumOS DEV-store
+candidate hard-codes height 1000 and is not published from this installer.
+
+Existing private/keyed prototypes can switch to the same public update channel
+without reinstalling their wallet:
+
+```bash
+(
+  set -Eeuo pipefail
+  workdir="$(mktemp -d)"
+  trap 'rm -rf "$workdir"' EXIT
+  cd "$workdir"
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.4-public-preview.1
+  curl -fSLO "$base/prototype-bridge.sh"
+  curl -fSLO "$base/prototype-bridge.sh.sha256"
+  sha256sum -c prototype-bridge.sh.sha256
+  sudo bash prototype-bridge.sh --release-tag v0.9.4-public-preview.1
+)
+```
+
 ## Create a dedicated Proxmox node
 
-Run this on the Proxmox VE host as `root`. It creates an unprivileged Debian 12
-LXC and installs 5tratSmack inside the guest; it does not install the
+Run this on the Proxmox VE host as `root`. It creates an unprivileged Debian
+12/13 LXC and installs 5tratSmack inside the guest; it does not install the
 application or Docker on the Proxmox host:
 
 ```bash
@@ -42,18 +64,29 @@ application or Docker on the Proxmox host:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.2-public-preview.1/proxmox-helper.sh
-  curl -fSLO https://github.com/WillItMod/5tratSmack/releases/download/v0.9.2-public-preview.1/proxmox-helper.sh.sha256
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.4-public-preview.1
+  curl -fSLO "$base/proxmox-helper.sh"
+  curl -fSLO "$base/proxmox-helper.sh.sha256"
   sha256sum -c proxmox-helper.sh.sha256
-  bash proxmox-helper.sh
+  bash proxmox-helper.sh --release-tag v0.9.4-public-preview.1
 )
 ```
 
-The helper defaults to a dedicated unprivileged LXC using DHCP. Run
+The helper defaults to a dedicated unprivileged LXC using DHCP and selects a
+suitable active Proxmox storage that supports LXC root disks. Run
 `bash proxmox-helper.sh --help` to see static-address, storage, bridge and
 resource options. The command runs in a temporary subshell, so it returns to
 the original directory and removes its downloaded installer files when it
 finishes.
+
+## v0.9.4 public preview
+
+- Adds the release/licensing heartbeat used to identify the app as
+  `5tratSmack` without exposing wallet, mining or personal data.
+- Keeps prototype mining active at height zero while the independent
+  DEV-store candidate waits for candidate block 1000.
+- Adds checksum-verified ordinary Linux and Proxmox deployment instructions;
+  the Proxmox helper selects suitable storage and cleans its temporary files.
 
 ## v0.9.2 public preview
 

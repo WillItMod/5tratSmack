@@ -1,0 +1,32 @@
+{
+  "application": "5tratSmack",
+  "version": "0.9.4-public-preview.1",
+  "channel": "public-preview",
+  "devStorePublished": false,
+  "installKeyRequired": false,
+  "architectures": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "components": [
+    "5trat-core",
+    "5tratsmack-ckpool",
+    "5tratsmack-upnp",
+    "5tratsmack-kdf",
+    "5tratsmack-app"
+  ],
+  "coreRelease": "v27.0.0-5trat-preview.1",
+  "privateSourceRevision": "9f09a57e6b5c84662f8f0f6754cc423d2eeeacc7",
+  "prototypeMiningActivationHeight": 0,
+  "devCandidateMiningActivationHeight": 1000,
+  "stratumExtranonce2Bytes": 3,
+  "features": [
+    "keyless checksum-verified prototype updates",
+    "release and licensing heartbeat",
+    "ordinary Linux prerequisite bootstrap",
+    "dedicated Proxmox LXC helper with automatic storage selection",
+    "separate block-1000 DEV candidate"
+  ],
+  "status": "approved-for-direct-public-preview",
+  "notes": "Direct prototype installer only. The independently gated 5tratumOS DEV-store candidate remains unpublished."
+}
