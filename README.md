@@ -2,11 +2,11 @@
 
 Public release, compatibility and issue-tracking home for 5tratSmack.
 
-The application is available as a public-preview, direct Linux installation.
-It is **not yet available through the 5tratumOS DEV store**. This repository
-intentionally contains only public installers, compatibility metadata,
-checksums, release notes and issue tracking; the private application source is
-kept in a separate restricted repository.
+The application is available as a public-preview direct Linux installation and
+as a block-1000 pre-launch candidate in the 5tratumOS DEV store. This
+repository intentionally contains only public installers, compatibility
+metadata, checksums, release notes and issue tracking; the private application
+source is kept in a separate restricted repository.
 
 ## Install on Linux or 5tratumOS
 
@@ -19,11 +19,11 @@ both files and verify the checksum before running it:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.4-public-preview.1
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.5-public-preview.1
   curl -fSLO "$base/install.sh"
   curl -fSLO "$base/install.sh.sha256"
   sha256sum -c install.sh.sha256
-  sudo bash install.sh --release-tag v0.9.4-public-preview.1
+  sudo bash install.sh --release-tag v0.9.5-public-preview.1
 )
 ```
 
@@ -33,7 +33,7 @@ still strongly recommended before installation.
 
 Prototype installations are explicitly ungated: their installer preserves
 `FIVETRAT_MINING_ACTIVATION_HEIGHT=0`. The separately staged 5tratumOS DEV-store
-candidate hard-codes height 1000 and is not published from this installer.
+candidate hard-codes height 1000 and is published only through the DEV store.
 
 Existing private/keyed prototypes can switch to the same public update channel
 without reinstalling their wallet:
@@ -44,11 +44,11 @@ without reinstalling their wallet:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.4-public-preview.1
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.5-public-preview.1
   curl -fSLO "$base/prototype-bridge.sh"
   curl -fSLO "$base/prototype-bridge.sh.sha256"
   sha256sum -c prototype-bridge.sh.sha256
-  sudo bash prototype-bridge.sh --release-tag v0.9.4-public-preview.1
+  sudo bash prototype-bridge.sh --release-tag v0.9.5-public-preview.1
 )
 ```
 
@@ -64,11 +64,11 @@ application or Docker on the Proxmox host:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.4-public-preview.1
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.5-public-preview.1
   curl -fSLO "$base/proxmox-helper.sh"
   curl -fSLO "$base/proxmox-helper.sh.sha256"
   sha256sum -c proxmox-helper.sh.sha256
-  bash proxmox-helper.sh --release-tag v0.9.4-public-preview.1
+  bash proxmox-helper.sh --release-tag v0.9.5-public-preview.1
 )
 ```
 
@@ -78,6 +78,15 @@ suitable active Proxmox storage that supports LXC root disks. Run
 resource options. The command runs in a temporary subshell, so it returns to
 the original directory and removes its downloaded installer files when it
 finishes.
+
+## v0.9.5 public preview
+
+- Keeps the prototype web container on its routable edge network and publishes
+  the 5tratumOS application port, preventing an internal-only network from
+  producing a Bad Gateway page.
+- Adds release checks for both prototype and DEV web routing.
+- Remains an ungated prototype release: mining activation defaults to height
+  zero and is independent of the block-1000 DEV Store candidate.
 
 ## v0.9.4 public preview
 
