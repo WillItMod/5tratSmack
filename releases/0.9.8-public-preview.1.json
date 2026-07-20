@@ -1,0 +1,33 @@
+{
+  "application": "5tratSmack",
+  "version": "0.9.8-public-preview.1",
+  "channel": "public-preview",
+  "devStorePublished": true,
+  "installKeyRequired": false,
+  "architectures": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "components": [
+    "5trat-core",
+    "5tratsmack-ckpool",
+    "5tratsmack-upnp",
+    "5tratsmack-kdf",
+    "5tratsmack-app"
+  ],
+  "coreRelease": "v27.0.0-5trat-preview.1",
+  "privateSourceRevision": "19b2330b5acb183ecc39182366d43b07d6ad56b8",
+  "prototypeMiningActivationHeight": 0,
+  "devCandidateMiningActivationHeight": 1000,
+  "stratumExtranonce2Bytes": 3,
+  "features": [
+    "plain-language BUY and SELL market-book rows",
+    "DGB offered shown as the primary quantity on BUY bids",
+    "5TRAT for sale shown as the primary quantity on SELL asks",
+    "consistent DGB-per-1-5TRAT rates throughout the trade interface",
+    "explicit BUY, SELL TO BUYER and MANAGE YOUR ORDER actions",
+    "keyless checksum-verified prototype updates"
+  ],
+  "status": "approved-for-direct-public-preview",
+  "notes": "Ungated direct prototype installer. Wallet, chain, pool, balances and live atomic orders are preserved during update."
+}

@@ -19,11 +19,11 @@ both files and verify the checksum before running it:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.7-public-preview.1
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.8-public-preview.1
   curl -fSLO "$base/install.sh"
   curl -fSLO "$base/install.sh.sha256"
   sha256sum -c install.sh.sha256
-  sudo bash install.sh --release-tag v0.9.7-public-preview.1
+  sudo bash install.sh --release-tag v0.9.8-public-preview.1
 )
 ```
 
@@ -44,11 +44,11 @@ without reinstalling their wallet:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.7-public-preview.1
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.8-public-preview.1
   curl -fSLO "$base/prototype-bridge.sh"
   curl -fSLO "$base/prototype-bridge.sh.sha256"
   sha256sum -c prototype-bridge.sh.sha256
-  sudo bash prototype-bridge.sh --release-tag v0.9.7-public-preview.1
+  sudo bash prototype-bridge.sh --release-tag v0.9.8-public-preview.1
 )
 ```
 
@@ -64,11 +64,11 @@ application or Docker on the Proxmox host:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.7-public-preview.1
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.8-public-preview.1
   curl -fSLO "$base/proxmox-helper.sh"
   curl -fSLO "$base/proxmox-helper.sh.sha256"
   sha256sum -c proxmox-helper.sh.sha256
-  bash proxmox-helper.sh --release-tag v0.9.7-public-preview.1
+  bash proxmox-helper.sh --release-tag v0.9.8-public-preview.1
 )
 ```
 
@@ -78,6 +78,18 @@ suitable active Proxmox storage that supports LXC root disks. Run
 resource options. The command runs in a temporary subshell, so it returns to
 the original directory and removes its downloaded installer files when it
 finishes.
+
+## v0.9.8 public preview
+
+- Rewrites the market book in plain buyer and seller language. A BUY bid now
+  leads with the DGB offered and explicitly states how much 5TRAT the buyer
+  wants; a SELL ask leads with the 5TRAT for sale and its full DGB value.
+- Uses one consistent rate everywhere: DGB per 1 5TRAT.
+- Replaces ambiguous selection controls with `BUY`, `SELL TO BUYER`, and
+  `MANAGE YOUR ORDER` actions while preserving partial fills and concurrent
+  BUY and SELL orders.
+- Preserves the ungated prototype chain, wallets, balances, and live atomic
+  orders during update.
 
 ## v0.9.7 public preview
 
