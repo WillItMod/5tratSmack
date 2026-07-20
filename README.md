@@ -52,6 +52,27 @@ without reinstalling their wallet:
 )
 ```
 
+If a public prototype inherited the DEV candidate's block-1000 mining gate,
+run the checksum-verified prototype repair from an SSH session:
+
+```bash
+(
+  set -Eeuo pipefail
+  workdir="$(mktemp -d)"
+  trap 'rm -rf "$workdir"' EXIT
+  cd "$workdir"
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.8-public-preview.1
+  curl -fSLO "$base/prototype-ungate.sh"
+  curl -fSLO "$base/prototype-ungate.sh.sha256"
+  sha256sum -c prototype-ungate.sh.sha256
+  sudo bash prototype-ungate.sh
+)
+```
+
+The helper refuses to run against the DEV build. It only changes the public
+prototype's saved mining gate to zero and recreates its pool and web services;
+wallet, blockchain, pool-history and trading volumes are not modified.
+
 ## Create a dedicated Proxmox node
 
 Run this on the Proxmox VE host as `root`. It creates an unprivileged Debian
