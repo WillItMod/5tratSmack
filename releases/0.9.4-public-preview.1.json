@@ -16,7 +16,7 @@
     "5tratsmack-app"
   ],
   "coreRelease": "v27.0.0-5trat-preview.1",
-  "privateSourceRevision": "9f09a57e6b5c84662f8f0f6754cc423d2eeeacc7",
+  "privateSourceRevision": "f07c9f32f43925d93b428f4918917ec3018786d6",
   "prototypeMiningActivationHeight": 0,
   "devCandidateMiningActivationHeight": 1000,
   "stratumExtranonce2Bytes": 3,

@@ -87,6 +87,8 @@ finishes.
   DEV-store candidate waits for candidate block 1000.
 - Adds checksum-verified ordinary Linux and Proxmox deployment instructions;
   the Proxmox helper selects suitable storage and cleans its temporary files.
+- Preserves an existing prototype's selected bind address while moving it to
+  the public update channel, including hosts with multiple LAN/VPN interfaces.
 
 ## v0.9.2 public preview
 
