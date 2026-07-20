@@ -73,6 +73,29 @@ The helper refuses to run against the DEV build. It only changes the public
 prototype's saved mining gate to zero and recreates its pool and web services;
 wallet, blockchain, pool-history and trading volumes are not modified.
 
+If a prototype pool repeatedly reports `Illegal instruction`, `core dumped`,
+or exit code 132, install the baseline-safe pool image with this
+checksum-verified repair:
+
+```bash
+(
+  set -Eeuo pipefail
+  workdir="$(mktemp -d)"
+  trap 'rm -rf "$workdir"' EXIT
+  cd "$workdir"
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.8-public-preview.1
+  curl -fSLO "$base/prototype-portable-ckpool.sh"
+  curl -fSLO "$base/prototype-portable-ckpool.sh.sha256"
+  sha256sum -c prototype-portable-ckpool.sh.sha256
+  sudo bash prototype-portable-ckpool.sh
+)
+```
+
+This helper refuses the DEV build and preserves the prototype mining gate at
+zero. It replaces and restarts only `ckpool`, observes live node/template
+traffic for recurring CPU crashes, and automatically restores the prior image
+if validation fails. All persistent volumes remain attached and unchanged.
+
 ## Create a dedicated Proxmox node
 
 Run this on the Proxmox VE host as `root`. It creates an unprivileged Debian
