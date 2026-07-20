@@ -1,5 +1,25 @@
 # 5tratSmack
 
+## Moving a prototype installation to the DEV community store
+
+Do not install the DEV entry beside a running prototype. Both copies need the
+same web, P2P, Stratum, and trade-mesh ports, so the second copy will fail to
+start with an HTTP 400 from 5tratumOS.
+
+The checked handover helper stops (but does not delete) the prototype
+containers, copies its wallet, chain, pool, UI, and trading data into the
+5tratumOS-managed app location, repairs a partial DEV install if one exists,
+and leaves the prototype containers disabled as a rollback copy:
+
+```bash
+workdir="$(mktemp -d)"
+cd "$workdir"
+curl -fSLO https://raw.githubusercontent.com/WillItMod/5tratSmack/main/scripts/prototype-to-dev-store.sh
+curl -fSLO https://raw.githubusercontent.com/WillItMod/5tratSmack/main/scripts/prototype-to-dev-store.sh.sha256
+sha256sum -c prototype-to-dev-store.sh.sha256
+sudo bash prototype-to-dev-store.sh
+```
+
 Public release, compatibility and issue-tracking home for 5tratSmack.
 
 The application is available as a public-preview direct Linux installation and
