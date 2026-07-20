@@ -1,0 +1,33 @@
+{
+  "application": "5tratSmack",
+  "version": "0.9.7-public-preview.1",
+  "channel": "public-preview",
+  "devStorePublished": true,
+  "installKeyRequired": false,
+  "architectures": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "components": [
+    "5trat-core",
+    "5tratsmack-ckpool",
+    "5tratsmack-upnp",
+    "5tratsmack-kdf",
+    "5tratsmack-app"
+  ],
+  "coreRelease": "v27.0.0-5trat-preview.1",
+  "privateSourceRevision": "ff5ce64266932f3c4bed6257466b749f9e38c784",
+  "prototypeMiningActivationHeight": 0,
+  "devCandidateMiningActivationHeight": 1000,
+  "stratumExtranonce2Bytes": 3,
+  "features": [
+    "full-chain mined-block history recovery after wallet restore",
+    "explicit full-chain, installation-date and monthly block scanner starts",
+    "one-time historical 5TRAT trading-wallet rescan",
+    "automatic DGB activation retry after transient backend failure",
+    "cached DGB wallet continuity during temporary backend failure",
+    "keyless checksum-verified prototype updates"
+  ],
+  "status": "approved-for-direct-public-preview",
+  "notes": "Ungated direct prototype installer. Wallet, chain, pool and trading state are preserved during update."
+}
