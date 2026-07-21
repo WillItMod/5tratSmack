@@ -1,5 +1,18 @@
 # 5tratSmack
 
+Public release, compatibility and issue-tracking home for 5tratSmack.
+
+**[Read: What is 5TRAT?](docs/ABOUT-5TRAT.md)** explains why the coin was
+created, how home mining works, the difference between the wallet's estimated
+production cost and the completed-trade value, and how 5TRAT/DGB atomic swaps
+work.
+
+The application is available as a public-preview direct Linux installation and
+through the 5tratumOS DEV community store. This repository intentionally
+contains only public installers, compatibility metadata, checksums, release
+notes and issue tracking; the private application source is kept in a separate
+restricted repository.
+
 ## Moving a prototype installation to the DEV community store
 
 Do not install the DEV entry beside a running prototype. Both copies need the
@@ -19,14 +32,6 @@ curl -fSLO https://raw.githubusercontent.com/WillItMod/5tratSmack/main/scripts/p
 sha256sum -c prototype-to-dev-store.sh.sha256
 sudo bash prototype-to-dev-store.sh
 ```
-
-Public release, compatibility and issue-tracking home for 5tratSmack.
-
-The application is available as a public-preview direct Linux installation and
-as a block-1000 pre-launch candidate in the 5tratumOS DEV store. This
-repository intentionally contains only public installers, compatibility
-metadata, checksums, release notes and issue tracking; the private application
-source is kept in a separate restricted repository.
 
 ## Install on Linux or 5tratumOS
 
