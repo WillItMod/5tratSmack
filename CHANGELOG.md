@@ -19,6 +19,28 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.14] - 2026-07-21
+
+### Fixed
+
+- Made the in-app Update button call the authenticated 5tratumOS parent store
+  API instead of being rewritten back into the 5tratSmack app proxy.
+- Kept the direct-port fallback for installations that are not opened through
+  the normal 5tratumOS app frame.
+
+### Changed
+
+- Allowed up to eight independent live buy offers and eight independent live
+  sell offers per wallet. Existing offers and active swaps no longer prevent
+  another passive offer on the same side.
+
+### Preserved
+
+- Wallets, balances, chain data, existing orders and active swaps remain
+  attached during the update.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.14-dev)
+
 ## [0.10.13] - 2026-07-21
 
 ### Fixed
@@ -234,6 +256,7 @@ application source.
 - [5tratSmack GitHub releases](https://github.com/WillItMod/5tratSmack/releases)
 - [5tratumOS DEV Community Store history](https://github.com/WillItMod/umbrel-dev-community-store/commits/main/)
 
+[0.10.14]: https://github.com/WillItMod/5tratSmack/compare/v0.10.13-dev...v0.10.14-dev
 [0.10.13]: https://github.com/WillItMod/5tratSmack/compare/v0.10.12-dev...v0.10.13-dev
 [0.10.12]: https://github.com/WillItMod/5tratSmack/compare/v0.10.11-dev...v0.10.12-dev
 [0.10.11]: https://github.com/WillItMod/5tratSmack/compare/v0.10.10-dev...v0.10.11-dev
