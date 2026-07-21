@@ -1,0 +1,250 @@
+# 5tratSmack DEV changelog
+
+This file records the user-visible changes published through the 5tratumOS
+DEV Community App Store. It begins with the block-1000 DEV launch line and
+does not include the earlier private prototype builds.
+
+The changelog describes behaviour, compatibility and migration effects. It
+does not expose private credentials, signing material or restricted
+application source.
+
+## How this changelog is maintained
+
+- Every new DEV-store version must receive an entry here before it is
+  published.
+- Entries are newest first and use the version shown by 5tratumOS.
+- Each entry records fixes, user-visible changes, compatibility changes and
+  any action required after updating.
+- Published entries remain unchanged except for factual corrections.
+- Release artefacts and public corresponding-source archives are linked where
+  they exist.
+
+## [0.10.13] - 2026-07-21
+
+### Fixed
+
+- Rebuilt mined-block history after an encrypted wallet restore using all
+  legitimate mining payout addresses belonging to that wallet.
+- Excluded ordinary incoming payments, orphaned coinbase transactions and the
+  shared development-fund address from personal block-win history.
+- Automatically repaired an empty historical scan without requiring another
+  wallet restore; manual full/reset scans now use the same path.
+- Made the in-app Update button perform a fresh DEV-store check and report
+  `update available`, `current` or a visible error instead of silently doing
+  nothing.
+
+### Preserved
+
+- Wallets, balances, chain data, open orders and trading state remain attached
+  during the update.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.13-dev)
+
+## [0.10.12] - 2026-07-21
+
+### Added
+
+- Progressive Active Chain navigation: load older blocks, move backward or
+  forward, return to the live tip, or jump directly to a block height.
+
+### Fixed
+
+- Restored completed purchase and sale history when trading recovery records
+  exceeded the previous response limit.
+- Added bounded paging and more compact protocol data so long-running trading
+  wallets can recover their activity reliably.
+
+### Preserved
+
+- Wallets, balances, open orders and the existing atomic-trade engine are
+  unchanged.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.12-dev)
+
+## [0.10.11] - 2026-07-21
+
+### Added
+
+- Split a trade into a read-only economics review followed by an explicit
+  final authorisation.
+- Showed the exact amount paid, amount received, reserved funds and offer
+  terms before execution.
+- Added completed-trade trend warnings at 20% and stronger warnings at 50%
+  away from the established rate.
+
+### Fixed
+
+- Excluded unfilled bids and asks from the price-warning baseline; only
+  completed trades influence it.
+- Added a short final-button guard to prevent accidental double submission.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.11-dev)
+
+## [0.10.10] - 2026-07-21
+
+### Fixed
+
+- Allowed a funded live offer to be accepted while other atomic swaps are
+  still settling.
+- Tracked each active swap independently instead of allowing one swap to hide
+  another.
+- Repaired the in-app updater through both the 5tratumOS proxy route and the
+  direct application port.
+- Removed the redundant DEV Community release banner from the main interface.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.10-dev)
+
+## [0.10.9] - 2026-07-21
+
+### Added
+
+- Added an anonymous completed-trade tape. A market price is published only
+  when the maker and taker records agree.
+- Kept wallet addresses, usernames, node identities and open-order ownership
+  out of the published trade record.
+
+### Fixed
+
+- Allowed users to accept a live sale while their own BUY offer remains open,
+  and to accept a live bid while their own SELL offer remains open.
+- Protected funds reserved by existing orders and used only genuinely
+  unreserved balances for new activity.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.9-dev)
+
+## [0.10.8] - 2026-07-20
+
+### Changed
+
+- Routed in-app updates through the authenticated 5tratumOS DEV Community App
+  Store and disabled the legacy prototype updater in DEV installations.
+- Added a checksum-verified prototype-to-DEV handover helper that preserves
+  wallet, chain, pool, interface and trading volumes and retains the stopped
+  prototype as a rollback copy.
+
+### Fixed
+
+- Avoided the HTTP 400 and port conflicts caused by installing the DEV app
+  beside a running prototype.
+
+### Compatibility
+
+- Published AMD64 and ARM64 images; the block-1000 activation boundary was
+  unchanged.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.8-dev)
+
+## [0.10.7] - 2026-07-20
+
+### Fixed
+
+- Rebuilt the bundled solo pool for a baseline AMD64 CPU target so older
+  systems no longer crash with `Illegal instruction`, `core dumped` or exit
+  code 132.
+
+### Preserved
+
+- Consensus, rewards, wallets, persistent data and the block-1000 activation
+  boundary were unchanged.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.7-dev)
+
+## [0.10.6] - 2026-07-20
+
+### Changed
+
+- Rewrote the market book in plain buyer and seller language.
+- Standardised every displayed rate as `DGB per 1 5TRAT`.
+- Made BUY offers lead with the DGB offered and the amount of 5TRAT wanted.
+- Made SELL offers lead with the amount of 5TRAT for sale and its full DGB
+  value.
+- Replaced ambiguous controls with `BUY`, `SELL TO BUYER` and
+  `MANAGE YOUR ORDER` while retaining partial fills.
+
+## [0.10.5] - 2026-07-20
+
+### Fixed
+
+- Started restored-wallet block-history reconstruction from the full chain
+  instead of the installation-time cutoff.
+- Repaired restored wallet activation and mining payout selection after an
+  encrypted import.
+- Improved recovery of historical trading-wallet outputs after restore.
+
+> Note: the broader multi-address history repair was completed in 0.10.13.
+
+## [0.10.4] - 2026-07-20
+
+### Fixed
+
+- Repaired ownership of migrated public-node and trading-mesh mapper state so
+  helper services could update their status after a prototype-to-DEV move.
+- Limited the permission repair to the required state files while preserving
+  persistent application data.
+
+## [0.10.3] - 2026-07-20
+
+### Fixed
+
+- Corrected public-IP discovery and peer fan-out for newly installed nodes.
+- Replaced a permanent dependency on one bootstrap connection with seed-based
+  address discovery so nodes can learn and connect to the wider peer set.
+- Improved UPnP and manual-forward status reporting, including the LAN listener
+  and restart-required state.
+
+## [0.10.2] - 2026-07-20
+
+### Fixed
+
+- Restored the externally reachable DEV Stratum route on TCP port 57557.
+- Attached the bundled solo pool to the correct internal network while keeping
+  its chain connection isolated.
+- Added release verification for the published Stratum mapping.
+
+## [0.10.1] - 2026-07-20
+
+### Fixed
+
+- Repaired 5tratumOS reverse-proxy routing that caused a fresh DEV installation
+  to show `Bad Gateway`.
+- Connected the web application to the required internal edge network without
+  exposing node RPC or wallet services.
+
+## [0.10.0-dev.1] - 2026-07-20
+
+### Added
+
+- Introduced the first 5tratumOS DEV Community App Store release line.
+- Activated public mining from candidate block 1000: an accepted tip at block
+  999 opens the block-1000 template automatically, with no block-1001 delay.
+- Shipped the self-contained 5TRAT node, encrypted wallet, solo pool, explorer
+  and atomic 5TRAT/DGB trading components.
+- Enabled the shared trading mesh for fresh DEV installations.
+- Published AMD64 and ARM64 container support and corresponding public GPL
+  source archives where required.
+
+### Safety
+
+- Fresh installations began without a pre-filled personal payout address.
+- Chain, wallet, pool and trading data were placed in persistent volumes so
+  application updates do not reset them.
+
+## Public release records
+
+- [5tratSmack GitHub releases](https://github.com/WillItMod/5tratSmack/releases)
+- [5tratumOS DEV Community Store history](https://github.com/WillItMod/umbrel-dev-community-store/commits/main/)
+
+[0.10.13]: https://github.com/WillItMod/5tratSmack/compare/v0.10.12-dev...v0.10.13-dev
+[0.10.12]: https://github.com/WillItMod/5tratSmack/compare/v0.10.11-dev...v0.10.12-dev
+[0.10.11]: https://github.com/WillItMod/5tratSmack/compare/v0.10.10-dev...v0.10.11-dev
+[0.10.10]: https://github.com/WillItMod/5tratSmack/compare/v0.10.9-dev...v0.10.10-dev
+[0.10.9]: https://github.com/WillItMod/5tratSmack/compare/v0.10.8-dev...v0.10.9-dev
+[0.10.8]: https://github.com/WillItMod/5tratSmack/compare/v0.10.7-dev...v0.10.8-dev
+[0.10.7]: https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.7-dev
+[0.10.6]: https://github.com/WillItMod/umbrel-dev-community-store/commit/9b34b2f
+[0.10.5]: https://github.com/WillItMod/umbrel-dev-community-store/commit/51d018c
+[0.10.4]: https://github.com/WillItMod/umbrel-dev-community-store/commit/6fc6c36
+[0.10.3]: https://github.com/WillItMod/umbrel-dev-community-store/commit/51a9a7d
+[0.10.2]: https://github.com/WillItMod/umbrel-dev-community-store/commit/96f2be9
+[0.10.1]: https://github.com/WillItMod/umbrel-dev-community-store/commit/a10f5a7
+[0.10.0-dev.1]: https://github.com/WillItMod/umbrel-dev-community-store/commit/936ae3f

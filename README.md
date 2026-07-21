@@ -7,6 +7,9 @@ created, how home mining works, the difference between the wallet's estimated
 production cost and the completed-trade value, and how 5TRAT/DGB atomic swaps
 work.
 
+**[DEV release changelog](CHANGELOG.md)** records every 5tratumOS DEV
+Community App Store version from the block-1000 launch line onwards.
+
 The application is available as a public-preview direct Linux installation and
 through the 5tratumOS DEV community store. This repository intentionally
 contains only public installers, compatibility metadata, checksums, release
