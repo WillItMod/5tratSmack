@@ -19,6 +19,23 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.15] - 2026-07-21
+
+### Fixed
+
+- Completed the in-app DEV updater repair for both ways 5tratumOS opens an
+  application: inside the portal frame and directly at `/apps/5tratsmack/`.
+- Bypassed the intentional app-path rewriter only for authenticated
+  same-origin store operations. Normal 5tratSmack API requests remain scoped
+  beneath the application path.
+
+### Preserved
+
+- Wallets, balances, chain data, existing orders and active swaps remain
+  attached during the update.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.15-dev)
+
 ## [0.10.14] - 2026-07-21
 
 ### Fixed
@@ -256,6 +273,7 @@ application source.
 - [5tratSmack GitHub releases](https://github.com/WillItMod/5tratSmack/releases)
 - [5tratumOS DEV Community Store history](https://github.com/WillItMod/umbrel-dev-community-store/commits/main/)
 
+[0.10.15]: https://github.com/WillItMod/5tratSmack/compare/v0.10.14-dev...v0.10.15-dev
 [0.10.14]: https://github.com/WillItMod/5tratSmack/compare/v0.10.13-dev...v0.10.14-dev
 [0.10.13]: https://github.com/WillItMod/5tratSmack/compare/v0.10.12-dev...v0.10.13-dev
 [0.10.12]: https://github.com/WillItMod/5tratSmack/compare/v0.10.11-dev...v0.10.12-dev
