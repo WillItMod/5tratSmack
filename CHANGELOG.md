@@ -19,6 +19,25 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.17] - 2026-07-21
+
+### Fixed
+
+- Detected when 5tratSmack is opened on its direct application port instead of
+  through the authenticated 5tratumOS app page.
+- Replaced the misleading sign-in failure with an `Open OS updater` action
+  that returns the user to the same app through 5tratumOS for secure update
+  approval.
+- Stopped direct-port sessions repeatedly sending unauthenticated Store sync
+  requests to the application itself.
+
+### Preserved
+
+- Wallets, balances, chain data, existing orders and active swaps remain
+  attached during the update.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.17-dev)
+
 ## [0.10.16] - 2026-07-21
 
 ### Changed
@@ -299,6 +318,7 @@ application source.
 - [5tratSmack GitHub releases](https://github.com/WillItMod/5tratSmack/releases)
 - [5tratumOS DEV Community Store history](https://github.com/WillItMod/umbrel-dev-community-store/commits/main/)
 
+[0.10.17]: https://github.com/WillItMod/5tratSmack/compare/v0.10.16-dev...v0.10.17-dev
 [0.10.16]: https://github.com/WillItMod/5tratSmack/compare/v0.10.15-dev...v0.10.16-dev
 [0.10.15]: https://github.com/WillItMod/5tratSmack/compare/v0.10.14-dev...v0.10.15-dev
 [0.10.14]: https://github.com/WillItMod/5tratSmack/compare/v0.10.13-dev...v0.10.14-dev
