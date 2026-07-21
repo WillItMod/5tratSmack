@@ -19,6 +19,32 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.16] - 2026-07-21
+
+### Changed
+
+- Replaced the hidden exchange-ratio editor with a direct `DGB per 1 5TRAT`
+  price field.
+- Added clearly labelled Competitive, Average and Peak price shortcuts when
+  placing a buy or sell offer. No offer price is silently pre-filled.
+
+### Fixed
+
+- Prevented tiny extreme-price executions from distorting the completed-trade
+  guide or flattening the Trade Pulse chart.
+- Kept every valid completed trade visible in personal history while marking
+  detected price outliers and excluding them only from guidance and chart
+  scaling.
+- Changed the recent completed-trade guide to a volume-weighted median and
+  retained the robust completed-trade average for market context.
+
+### Preserved
+
+- Wallets, balances, chain data, existing orders and active swaps remain
+  attached during the update.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.16-dev)
+
 ## [0.10.15] - 2026-07-21
 
 ### Fixed
@@ -273,6 +299,7 @@ application source.
 - [5tratSmack GitHub releases](https://github.com/WillItMod/5tratSmack/releases)
 - [5tratumOS DEV Community Store history](https://github.com/WillItMod/umbrel-dev-community-store/commits/main/)
 
+[0.10.16]: https://github.com/WillItMod/5tratSmack/compare/v0.10.15-dev...v0.10.16-dev
 [0.10.15]: https://github.com/WillItMod/5tratSmack/compare/v0.10.14-dev...v0.10.15-dev
 [0.10.14]: https://github.com/WillItMod/5tratSmack/compare/v0.10.13-dev...v0.10.14-dev
 [0.10.13]: https://github.com/WillItMod/5tratSmack/compare/v0.10.12-dev...v0.10.13-dev
