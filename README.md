@@ -10,11 +10,78 @@ work.
 **[DEV release changelog](CHANGELOG.md)** records every 5tratumOS DEV
 Community App Store version from the block-1000 launch line onwards.
 
-The application is available as a public-preview direct Linux installation and
-through the 5tratumOS DEV community store. This repository intentionally
+The application is available through the 5tratumOS DEV Community App Store and
+as a checksum-verified standalone Linux package for AMD64 and ARM64. The Linux
+package is also used by the Proxmox helper. This repository intentionally
 contains only public installers, compatibility metadata, checksums, release
 notes and issue tracking; the private application source is kept in a separate
 restricted repository.
+
+## Install on Linux
+
+The current standalone release is `v0.10.17-linux`. It detects AMD64 or ARM64,
+installs Docker Engine and Docker Compose when required, verifies the selected
+runtime archive and runs the complete node, wallet, pool, explorer and trading
+application locally:
+
+```bash
+(
+  set -Eeuo pipefail
+  workdir="$(mktemp -d)"
+  trap 'rm -rf "$workdir"' EXIT
+  cd "$workdir"
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.17-linux
+  curl -fSLO "$base/install.sh"
+  curl -fSLO "$base/install.sh.sha256"
+  sha256sum -c install.sh.sha256
+  sudo bash install.sh --release-tag v0.10.17-linux --platform linux
+)
+```
+
+Open `http://HOST_IP:3015` after installation. The Stratum endpoint is
+`stratum+tcp://HOST_IP:57557`. Existing data is retained when the same
+installation is updated, but an encrypted wallet backup should always be
+created and tested first.
+
+See **[Standalone Linux installation](docs/INSTALL-LINUX.md)** for supported
+systems, ports, updating, custom bind addresses and public-node networking.
+
+## Install a dedicated Proxmox node
+
+Run this command as `root` on the Proxmox VE host. The helper creates an
+unprivileged Debian LXC guest and installs Docker and 5tratSmack inside that
+guest. It does not install either component on the Proxmox host:
+
+```bash
+(
+  set -Eeuo pipefail
+  workdir="$(mktemp -d)"
+  trap 'rm -rf "$workdir"' EXIT
+  cd "$workdir"
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.17-linux
+  curl -fSLO "$base/proxmox-helper.sh"
+  curl -fSLO "$base/proxmox-helper.sh.sha256"
+  sha256sum -c proxmox-helper.sh.sha256
+  bash proxmox-helper.sh --release-tag v0.10.17-linux
+)
+```
+
+The defaults are DHCP, the next free VMID, `vmbr0`, 80 GiB storage, four CPU
+cores and 8 GiB memory. See **[Proxmox installation](docs/INSTALL-PROXMOX.md)**
+for static-address, storage, bridge and resource examples.
+
+## Is a separate public-node build required?
+
+No. Every installation already contains a full validating 5TRAT node. It can
+synchronize through outbound peers without any router changes and can become
+an inbound community relay when TCP 57555 is reachable through UPnP or a manual
+forward. A machine used only for replication can simply leave its wallet and
+Stratum pool unused.
+
+A separate node-only image would duplicate consensus packaging, testing and
+updates without improving replication. The full application therefore remains
+the supported public-node package. Never expose the wallet RPC, web interface
+or Stratum port to the public internet merely to share the blockchain.
 
 ## Moving a prototype installation to the DEV community store
 
@@ -35,33 +102,6 @@ curl -fSLO https://raw.githubusercontent.com/WillItMod/5tratSmack/main/scripts/p
 sha256sum -c prototype-to-dev-store.sh.sha256
 sudo bash prototype-to-dev-store.sh
 ```
-
-## Install on Linux or 5tratumOS
-
-The installer detects 64-bit AMD/Intel and ARM systems automatically. Download
-both files and verify the checksum before running it:
-
-```bash
-(
-  set -Eeuo pipefail
-  workdir="$(mktemp -d)"
-  trap 'rm -rf "$workdir"' EXIT
-  cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.8-public-preview.1
-  curl -fSLO "$base/install.sh"
-  curl -fSLO "$base/install.sh.sha256"
-  sha256sum -c install.sh.sha256
-  sudo bash install.sh --release-tag v0.9.8-public-preview.1
-)
-```
-
-No installation key or GitHub account is required. Existing wallet and chain
-data are preserved during an update, but a verified encrypted wallet backup is
-still strongly recommended before installation.
-
-Prototype installations are explicitly ungated: their installer preserves
-`FIVETRAT_MINING_ACTIVATION_HEIGHT=0`. The separately staged 5tratumOS DEV-store
-candidate hard-codes height 1000 and is published only through the DEV store.
 
 Existing private/keyed prototypes can switch to the same public update channel
 without reinstalling their wallet:
@@ -123,33 +163,6 @@ This helper refuses the DEV build and preserves the prototype mining gate at
 zero. It replaces and restarts only `ckpool`, observes live node/template
 traffic for recurring CPU crashes, and automatically restores the prior image
 if validation fails. All persistent volumes remain attached and unchanged.
-
-## Create a dedicated Proxmox node
-
-Run this on the Proxmox VE host as `root`. It creates an unprivileged Debian
-12/13 LXC and installs 5tratSmack inside the guest; it does not install the
-application or Docker on the Proxmox host:
-
-```bash
-(
-  set -Eeuo pipefail
-  workdir="$(mktemp -d)"
-  trap 'rm -rf "$workdir"' EXIT
-  cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.9.8-public-preview.1
-  curl -fSLO "$base/proxmox-helper.sh"
-  curl -fSLO "$base/proxmox-helper.sh.sha256"
-  sha256sum -c proxmox-helper.sh.sha256
-  bash proxmox-helper.sh --release-tag v0.9.8-public-preview.1
-)
-```
-
-The helper defaults to a dedicated unprivileged LXC using DHCP and selects a
-suitable active Proxmox storage that supports LXC root disks. Run
-`bash proxmox-helper.sh --help` to see static-address, storage, bridge and
-resource options. The command runs in a temporary subshell, so it returns to
-the original directory and removes its downloaded installer files when it
-finishes.
 
 ## v0.9.8 public preview
 
