@@ -19,6 +19,32 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.18] - 2026-07-22
+
+### Fixed
+
+- Stopped an expired 5tratumOS sign-in from making the wallet or balance look
+  empty.
+- Added a clear private-data lock screen explaining that the wallet, balance
+  and keys remain safe while the OS session is unavailable.
+- Added a `Sign in and return` action that authenticates through 5tratumOS and
+  returns directly to 5tratSmack.
+- Preserved the existing standalone Linux and Proxmox behaviour. These builds
+  do not depend on a 5tratumOS login.
+
+### Recommended
+
+- 5tratumOS 0.5.6 adds a separate trusted-device sign-in lifetime, set to 30
+  days by default. Inactivity auto-lock and server sign-in lifetime can now be
+  configured independently.
+
+### Preserved
+
+- Wallets, balances, chain data, existing orders and active swaps remain
+  attached during the update.
+
+[Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.18-dev)
+
 ## [0.10.17] - 2026-07-21
 
 ### Fixed
@@ -318,6 +344,7 @@ application source.
 - [5tratSmack GitHub releases](https://github.com/WillItMod/5tratSmack/releases)
 - [5tratumOS DEV Community Store history](https://github.com/WillItMod/umbrel-dev-community-store/commits/main/)
 
+[0.10.18]: https://github.com/WillItMod/5tratSmack/compare/v0.10.17-dev...v0.10.18-dev
 [0.10.17]: https://github.com/WillItMod/5tratSmack/compare/v0.10.16-dev...v0.10.17-dev
 [0.10.16]: https://github.com/WillItMod/5tratSmack/compare/v0.10.15-dev...v0.10.16-dev
 [0.10.15]: https://github.com/WillItMod/5tratSmack/compare/v0.10.14-dev...v0.10.15-dev
