@@ -19,6 +19,28 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.20] - 2026-07-22
+
+### Added
+
+- Added Silly as a fourth, deliberately excessive motion profile above
+  Unhinged.
+- Added meteor donuts, roaming props, black-hole eyes, faster miner orbits,
+  event-aware comedy, extra laser theatre and an overblown block celebration.
+- Added a permanently visible `Return to Chill` control while Silly is active.
+  The Escape key provides a second instant exit.
+
+### Preserved
+
+- Silly changes presentation only. Blocks, balances, network difficulty,
+  miner telemetry, wallet actions, orders and swaps remain factual.
+- Chill retains its low-power rendering behaviour. Silly commentary also
+  pauses while the browser tab is hidden.
+- Smack and Unhinged keep their existing behaviour.
+
+- [DEV release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.20-dev)
+- [Linux and Proxmox release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.20-linux)
+
 ## [0.10.19] - 2026-07-22
 
 ### Fixed

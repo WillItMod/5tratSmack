@@ -13,11 +13,11 @@ Run as `root` in the Proxmox shell:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.19-linux
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.20-linux
   curl -fSLO "$base/proxmox-helper.sh"
   curl -fSLO "$base/proxmox-helper.sh.sha256"
   sha256sum -c proxmox-helper.sh.sha256
-  bash proxmox-helper.sh --release-tag v0.10.19-linux
+  bash proxmox-helper.sh --release-tag v0.10.20-linux
 )
 ```
 
@@ -41,7 +41,7 @@ Choose values appropriate for the local network:
 
 ```bash
 bash proxmox-helper.sh \
-  --release-tag v0.10.19-linux \
+  --release-tag v0.10.20-linux \
   --vmid 144 \
   --hostname 5tratsmack-node \
   --storage local-lvm \

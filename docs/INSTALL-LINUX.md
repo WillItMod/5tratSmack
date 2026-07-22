@@ -25,11 +25,11 @@ Download the installer and its checksum from the same immutable release:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.19-linux
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.20-linux
   curl -fSLO "$base/install.sh"
   curl -fSLO "$base/install.sh.sha256"
   sha256sum -c install.sh.sha256
-  sudo bash install.sh --release-tag v0.10.19-linux --platform linux
+  sudo bash install.sh --release-tag v0.10.20-linux --platform linux
 )
 ```
 

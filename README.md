@@ -19,7 +19,7 @@ restricted repository.
 
 ## Install on Linux
 
-The current standalone release is `v0.10.19-linux`. It detects AMD64 or ARM64,
+The current standalone release is `v0.10.20-linux`. It detects AMD64 or ARM64,
 installs Docker Engine and Docker Compose when required, verifies the selected
 runtime archive and runs the complete node, wallet, pool, explorer and trading
 application locally:
@@ -30,11 +30,11 @@ application locally:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.19-linux
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.20-linux
   curl -fSLO "$base/install.sh"
   curl -fSLO "$base/install.sh.sha256"
   sha256sum -c install.sh.sha256
-  sudo bash install.sh --release-tag v0.10.19-linux --platform linux
+  sudo bash install.sh --release-tag v0.10.20-linux --platform linux
 )
 ```
 
@@ -58,11 +58,11 @@ guest. It does not install either component on the Proxmox host:
   workdir="$(mktemp -d)"
   trap 'rm -rf "$workdir"' EXIT
   cd "$workdir"
-  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.19-linux
+  base=https://github.com/WillItMod/5tratSmack/releases/download/v0.10.20-linux
   curl -fSLO "$base/proxmox-helper.sh"
   curl -fSLO "$base/proxmox-helper.sh.sha256"
   sha256sum -c proxmox-helper.sh.sha256
-  bash proxmox-helper.sh --release-tag v0.10.19-linux
+  bash proxmox-helper.sh --release-tag v0.10.20-linux
 )
 ```
 
