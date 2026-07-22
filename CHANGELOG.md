@@ -19,6 +19,35 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.21] - 2026-07-22
+
+### Added
+
+- Added the Deep-Space Foundry visual theme with physical control panels,
+  amber instrumentation, restrained service wear and a green radar display.
+- Added optional per-event sound controls for shares, proof tiers, accepted
+  blocks, wallet movement, completed trades and system alerts. Audio remains
+  muted until the user enables it.
+- Added Clean Display mode to suppress transient activity messages and block
+  celebrations while keeping live telemetry and important security dialogs.
+
+### Fixed
+
+- Restored immediate visibility of saved local pool wins in the Blocks and
+  Explorer views. Slow chain enrichment now continues in the background
+  instead of holding back the complete stored history.
+- Matched Foundry navigation, controls and operational text to the original
+  5tratSmack font family and sizing. Changing themes no longer changes the
+  app's readable text scale.
+
+### Preserved
+
+- Wallets, balances, blockchain data, open orders and active swaps are
+  retained during the update.
+- The theme, sound and Clean Display changes affect presentation only.
+
+- [DEV release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.21-dev)
+
 ## [0.10.20] - 2026-07-22
 
 ### Added
