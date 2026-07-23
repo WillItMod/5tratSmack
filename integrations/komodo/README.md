@@ -28,14 +28,15 @@ native DGB on the DigiByte chain and native 5TRAT on the 5TRAT chain.
 | Public source | Live |
 | Public explorer | Live and synced |
 | Electrum server 1 | Live: TCP and secure WebSocket |
-| Electrum server 2 | Required on a second failure domain |
+| Electrum server 2 | Live for staging: separate `.44` node backend over an outbound-only encrypted tunnel |
 | BIP44/SLIP-0044 path | Proposed as `m/44'/5755'`; registration required |
-| Public five-transaction swap proof | Captured; explorer links become final when the explorer is live |
-| Upstream `KomodoPlatform/coins` PR | Held until both Electrum endpoints pass monitoring |
+| Public five-transaction swap proof | Captured with live explorer links |
+| Upstream `KomodoPlatform/coins` PR | Held until a second hosting failure domain is available |
 
-The second Electrum endpoint must not be a cosmetic duplicate of the first. It
-should run on another host or provider so one VPS failure cannot make 5TRAT
-unavailable to wallet users.
+The staging pair indexes two separate 5TRAT nodes. Both public ingress paths
+currently use the OVH VPS, however, so this does not yet provide a separate
+hosting failure domain. A second public host or provider remains the production
+requirement before the upstream listing is submitted.
 
 ## Network parameters
 

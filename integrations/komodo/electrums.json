@@ -7,5 +7,14 @@
       }
     ],
     "ws_url": "vps-b9997072.vps.ovh.net:443"
+  },
+  {
+    "url": "vps-b9997072.vps.ovh.net:50002",
+    "contact": [
+      {
+        "email": "axebench.app@gmail.com"
+      }
+    ],
+    "ws_url": "vps-b9997072.vps.ovh.net:5443"
   }
 ]
