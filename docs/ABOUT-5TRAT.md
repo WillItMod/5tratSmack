@@ -35,7 +35,7 @@ Every accepted proof is classified automatically:
 
 From block 280, a block pays 4.75 5TRAT immediately. Pink adds a 0.50 5TRAT
 bonus in the following block, while Gold adds 2.00 5TRAT. Across the
-probabilities, the long-term expected reward remains 5 5TRAT per block.
+probabilities, the long-term expected reward remains 5.00 5TRAT per block.
 
 The proof tiers are not separate mining lanes. They all use the same blockchain
 target, and network difficulty affects all miners and all tiers together.
@@ -89,22 +89,23 @@ maintenance or other expenses.
 The Trade page represents what people are actually exchanging through
 completed 5TRAT/DGB atomic swaps.
 
-The recommended trading rate is derived only from completed swaps recorded by
-the node. Open bids and asks do not set the guide price, preventing an
-unrealistic order from moving the displayed trend before any trade has
-occurred.
+The recommended trading rate is derived only from completed swaps corroborated
+by both sides of a trade. Open bids and asks do not set the guide price,
+preventing an unrealistic order from moving the displayed trend before any
+trade has occurred.
 
-At the time of writing on 21 July 2026, the completed-trade trend observed by
-the reference node is:
+Each participant signs an anonymous receipt describing the completed amount,
+rate and direction. A trade joins the public tape only when its maker and taker
+receipts agree. Two independent relays operated on different hosting providers
+serve the same public format, and 5tratSmack merges and deduplicates their
+results. Wallet addresses, node identities, usernames, passphrases and private
+keys are never published to the tape.
 
-```text
-1 5TRAT = 498 DGB
-```
-
-This is not a fixed exchange rate, a guaranteed price or a project valuation.
-It can rise or fall as new trades complete, and individual buyers and sellers
-remain free to publish a different rate. Each node derives its guide from the
-completed swaps it has recorded; it is not yet a network-wide market index.
+The displayed trend is not a fixed exchange rate, guaranteed price or project
+valuation. It can rise or fall as new trades complete, and individual buyers
+and sellers remain free to publish a different rate. The current live figure
+is shown in 5tratSmack and on [5trat.com](https://5trat.com); it is calculated
+from completed trades rather than a price chosen by the project.
 
 ## How 5TRAT and DGB trading works
 
@@ -138,3 +139,19 @@ It is a coin created for home miners, secured by their contributed work and
 valued through voluntary exchange.
 
 It is your hash, your block and your coin.
+
+## Public network services
+
+The public network is deliberately spread across two providers:
+
+| Service | Primary | Secondary |
+| --- | --- | --- |
+| Chain seed | `seed1.5trat.net:57555` | `seed2.5trat.net:57555` |
+| DEX peer | `dex1.5trat.net:30808` | `dex2.5trat.net:30808` |
+| Electrum | `electrum1.5trat.net:50001` | `electrum2.5trat.net:50001` |
+| Explorer | `https://explorer1.5trat.net/explorer/` | `https://explorer2.5trat.net/explorer/` |
+| Completed-trade relay | `https://market1.5trat.net/trade-tape/` | `https://market2.5trat.net/trade-tape/` |
+
+These are bootstrap and read-only discovery services, not authorities over the
+chain. Every full node validates consensus independently and continues using
+peer discovery after bootstrap.

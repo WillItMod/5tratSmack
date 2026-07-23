@@ -1,0 +1,20 @@
+[
+  {
+    "url": "electrum1.5trat.net:50001",
+    "contact": [
+      {
+        "email": "axebench.app@gmail.com"
+      }
+    ],
+    "ws_url": "electrum1.5trat.net:443"
+  },
+  {
+    "url": "electrum2.5trat.net:50001",
+    "contact": [
+      {
+        "email": "axebench.app@gmail.com"
+      }
+    ],
+    "ws_url": "electrum2.5trat.net:443"
+  }
+]
