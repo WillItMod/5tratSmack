@@ -29,7 +29,7 @@ native DGB on the DigiByte chain and native 5TRAT on the 5TRAT chain.
 | Public explorer | Live and synced |
 | Electrum server 1 | Live: TCP and secure WebSocket |
 | Electrum server 2 | Live for staging: separate `.44` node backend over an outbound-only encrypted tunnel |
-| BIP44/SLIP-0044 path | Proposed as `m/44'/5755'`; registration required |
+| BIP44/SLIP-0044 path | `m/44'/5755'`; [registration PR submitted](https://github.com/satoshilabs/slips/pull/2037) |
 | Public five-transaction swap proof | Captured with live explorer links |
 | Upstream `KomodoPlatform/coins` PR | Held until a second hosting failure domain is available |
 
