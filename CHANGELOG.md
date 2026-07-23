@@ -21,6 +21,18 @@ application source.
 
 ## [0.10.23] - 2026-07-23
 
+### Fixed
+
+- Fixed `My pool wins` attribution for delayed Pink and Gold rewards. Only
+  coinbase output zero now identifies the miner that found the current block;
+  a jackpot paid by the following block is no longer mistaken for another win.
+- Existing local win archives are checked against the canonical chain after
+  updating. False next-block entries are removed, duplicate block hashes are
+  collapsed, and each genuine win is restored to its canonical Blue, Pink or
+  Gold tier.
+- The repair changes only the app's local win history. Blockchain data,
+  rewards, wallet balances and coinbase transactions are unchanged.
+
 ### Added
 
 - Added two independent DNS chain seeds, DEX entry points, Electrum services,
