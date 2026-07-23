@@ -39,10 +39,15 @@ read-only explorer and Electrum index while independently validating the same
 5TRAT chain. Losing either provider no longer removes every public wallet
 ingress.
 
-| Provider | Chain / DEX | Electrum | Explorer |
+| Provider | Chain seed | Electrum | Explorer |
 | --- | --- | --- | --- |
-| OVH | `seed1.5trat.net:57555` / `dex1.5trat.net:30808` | `electrum1.5trat.net:50002` (SSL), WSS `:443` | `https://explorer1.5trat.net/explorer/` |
-| Hetzner | `seed2.5trat.net:57555` / `dex2.5trat.net:30808` | `electrum2.5trat.net:50002` (SSL), WSS `:443` | `https://explorer2.5trat.net/explorer/` |
+| OVH | `seed1.5trat.net:57555` | `electrum1.5trat.net:50002` (SSL), WSS `:443` | `https://explorer1.5trat.net/explorer/` |
+| Hetzner | `seed2.5trat.net:57555` | `electrum2.5trat.net:50002` (SSL), WSS `:443` | `https://explorer2.5trat.net/explorer/` |
+
+Atomic-swap discovery uses the public KDF network on net ID `6133` and the
+maintained upstream KDF seed registry. Ordinary wallets connect outbound to
+TCP `32326`; the 5TRAT infrastructure does not operate a separate private DEX
+authority.
 
 ## Network parameters
 
