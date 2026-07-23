@@ -7,6 +7,10 @@ created, how home mining works, the difference between the wallet's estimated
 production cost and the completed-trade value, and how 5TRAT/DGB atomic swaps
 work.
 
+**[Follow the external DEX integration](integrations/komodo/README.md)** for
+the public KDF coin configuration, explorer/Electrum rollout and completed
+native 5TRAT/DGB atomic-swap proof.
+
 **[DEV release changelog](CHANGELOG.md)** records every 5tratumOS DEV
 Community App Store version from the block-1000 launch line onwards.
 

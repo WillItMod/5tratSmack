@@ -1,0 +1,52 @@
+{
+  "framework": "Komodo DeFi Framework",
+  "swap_protocol": "KDF v2",
+  "uuid": "b0c14cea-5167-4a0b-8174-7b0ec4851216",
+  "status": "finished",
+  "started_at_unix": 1784384265,
+  "maker_coin": "5TRAT",
+  "maker_volume": "1",
+  "taker_coin": "DGB",
+  "taker_volume": "500",
+  "transactions": [
+    {
+      "event": "TakerFundingSent",
+      "description": "KDF v2 taker funding transaction",
+      "coin": "DGB",
+      "txid": "5fd3bd91cb2563081657ec888a8e96c557722a8f4de91774d6e4d446f525215d",
+      "explorer": "https://digiexplorer.info/tx/5fd3bd91cb2563081657ec888a8e96c557722a8f4de91774d6e4d446f525215d"
+    },
+    {
+      "event": "MakerPaymentConfirmed",
+      "description": "Maker payment",
+      "coin": "5TRAT",
+      "txid": "9fe3a1d202f683c567b261b5de9215b694385fa4c8deca6fba87f20b7a381a69",
+      "explorer": "https://vps-b9997072.vps.ovh.net/explorer/tx/9fe3a1d202f683c567b261b5de9215b694385fa4c8deca6fba87f20b7a381a69"
+    },
+    {
+      "event": "TakerPaymentSent",
+      "description": "Taker payment",
+      "coin": "DGB",
+      "txid": "6f7a24d9ebec3012b49b94cce196c590bed73a1c9c2f9f6ceea8e29ff9b4ae88",
+      "explorer": "https://digiexplorer.info/tx/6f7a24d9ebec3012b49b94cce196c590bed73a1c9c2f9f6ceea8e29ff9b4ae88"
+    },
+    {
+      "event": "TakerPaymentSpent",
+      "description": "Maker redeemed the taker payment",
+      "coin": "DGB",
+      "txid": "412f47b6fd1dafdaa39ce14b2d7bcdb3de07c3cc20bcab3cd9b337a0f0854f2d",
+      "explorer": "https://digiexplorer.info/tx/412f47b6fd1dafdaa39ce14b2d7bcdb3de07c3cc20bcab3cd9b337a0f0854f2d"
+    },
+    {
+      "event": "MakerPaymentSpent",
+      "description": "Taker redeemed the maker payment",
+      "coin": "5TRAT",
+      "txid": "f8404e513733bc09975591ec0ec0ff588216699ed0e72e0f2e7bc13d61421fac",
+      "explorer": "https://vps-b9997072.vps.ovh.net/explorer/tx/f8404e513733bc09975591ec0ec0ff588216699ed0e72e0f2e7bc13d61421fac"
+    }
+  ],
+  "notes": [
+    "KDF v2 uses a taker-funding transaction rather than the legacy taker-fee event name.",
+    "No wallet addresses, seed phrases, passphrases or raw signed transactions are included in this public proof."
+  ]
+}
