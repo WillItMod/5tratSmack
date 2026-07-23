@@ -1,6 +1,6 @@
 {
   "coin": "5TRAT",
-  "name": "fivetratum",
+  "name": "fivetrat",
   "fname": "5tratum Coin",
   "sign_message_prefix": "Bitcoin Signed Message:\n",
   "rpcport": 57576,
@@ -28,6 +28,6 @@
   "derivation_path": "m/44'/5755'",
   "links": {
     "github": "https://github.com/WillItMod/5trat-core",
-    "homepage": "https://github.com/WillItMod/5tratSmack"
+    "homepage": "https://5trat.com"
   }
 }

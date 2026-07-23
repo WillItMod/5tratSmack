@@ -21,7 +21,7 @@
       "description": "Maker payment",
       "coin": "5TRAT",
       "txid": "9fe3a1d202f683c567b261b5de9215b694385fa4c8deca6fba87f20b7a381a69",
-      "explorer": "https://vps-b9997072.vps.ovh.net/explorer/tx/9fe3a1d202f683c567b261b5de9215b694385fa4c8deca6fba87f20b7a381a69"
+      "explorer": "https://explorer1.5trat.net/explorer/tx/9fe3a1d202f683c567b261b5de9215b694385fa4c8deca6fba87f20b7a381a69"
     },
     {
       "event": "TakerPaymentSent",
@@ -42,7 +42,7 @@
       "description": "Taker redeemed the maker payment",
       "coin": "5TRAT",
       "txid": "f8404e513733bc09975591ec0ec0ff588216699ed0e72e0f2e7bc13d61421fac",
-      "explorer": "https://vps-b9997072.vps.ovh.net/explorer/tx/f8404e513733bc09975591ec0ec0ff588216699ed0e72e0f2e7bc13d61421fac"
+      "explorer": "https://explorer2.5trat.net/explorer/tx/f8404e513733bc09975591ec0ec0ff588216699ed0e72e0f2e7bc13d61421fac"
     }
   ],
   "notes": [
