@@ -27,11 +27,11 @@ native DGB on the DigiByte chain and native 5TRAT on the 5TRAT chain.
 | 512 px PNG icon | Prepared in [`icons/5TRAT.png`](icons/5TRAT.png) |
 | Public source | Live |
 | Public explorers | Two live, synced and independently hosted endpoints |
-| Electrum server 1 | Live on OVH: TCP and secure WebSocket |
-| Electrum server 2 | Live on Hetzner: TCP and secure WebSocket, backed by an independent full node |
+| Electrum server 1 | Live on OVH: raw SSL and secure WebSocket |
+| Electrum server 2 | Live on Hetzner: raw SSL and secure WebSocket, backed by an independent full node |
 | BIP44/SLIP-0044 path | `m/44'/5755'`; [registration PR submitted](https://github.com/satoshilabs/slips/pull/2037) |
 | Public five-transaction swap proof | Captured with live explorer links |
-| Upstream `KomodoPlatform/coins` PR | [Draft #17 submitted](https://github.com/KomodoPlatform/coins/pull/17); independent second ingress is now live |
+| Upstream `KomodoPlatform/coins` PR | [#17 ready for review](https://github.com/KomodoPlatform/coins/pull/17) |
 
 The two public Electrum services now run on independent full nodes, public IPs
 and hosting providers. The OVH and Hetzner hosts each expose their own
@@ -41,8 +41,8 @@ ingress.
 
 | Provider | Chain / DEX | Electrum | Explorer |
 | --- | --- | --- | --- |
-| OVH | `seed1.5trat.net:57555` / `dex1.5trat.net:30808` | `electrum1.5trat.net:50001` | `https://explorer1.5trat.net/explorer/` |
-| Hetzner | `seed2.5trat.net:57555` / `dex2.5trat.net:30808` | `electrum2.5trat.net:50001` | `https://explorer2.5trat.net/explorer/` |
+| OVH | `seed1.5trat.net:57555` / `dex1.5trat.net:30808` | `electrum1.5trat.net:50002` (SSL), WSS `:443` | `https://explorer1.5trat.net/explorer/` |
+| Hetzner | `seed2.5trat.net:57555` / `dex2.5trat.net:30808` | `electrum2.5trat.net:50002` (SSL), WSS `:443` | `https://explorer2.5trat.net/explorer/` |
 
 ## Network parameters
 
@@ -59,6 +59,7 @@ ingress.
 | Average block time | 300 seconds |
 | Recommended confirmations | 12 |
 | Coinbase maturity | 100 |
+| Minimum transaction / dust | 1,000 atomic units |
 | Mainnet P2P / RPC | 57555 / 57576 |
 | Genesis | `af4973599946fbe8c350eae4ff51ba9fbe3fc00fa07e8413b869874ee1be8310` |
 
@@ -68,3 +69,9 @@ The explorer and Electrum services are read-only indexes. They do not receive
 wallet passphrases, seed phrases, private keys or access to the 5tratSmack
 wallet. KDF swaps remain peer-to-peer and each side signs only its own native
 chain transactions.
+
+The public explorers expose paginated block history, transactions, true
+address balances and UTXOs, mempool status, network health, coinbase-message
+search, proof tiers and the bundled pool's informational two-minute
+winning-node hashrate marker. The marker is public telemetry, not a consensus
+rule and not a claim about an individual ASIC.
