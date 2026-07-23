@@ -39,6 +39,11 @@ read-only explorer and Electrum index while independently validating the same
 5TRAT chain. Losing either provider no longer removes every public wallet
 ingress.
 
+| Provider | Chain / DEX | Electrum | Explorer |
+| --- | --- | --- | --- |
+| OVH | `seed1.5trat.net:57555` / `dex1.5trat.net:30808` | `electrum1.5trat.net:50001` | `https://explorer1.5trat.net/explorer/` |
+| Hetzner | `seed2.5trat.net:57555` / `dex2.5trat.net:30808` | `electrum2.5trat.net:50001` | `https://explorer2.5trat.net/explorer/` |
+
 ## Network parameters
 
 | Parameter | Value |

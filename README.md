@@ -2,6 +2,9 @@
 
 Public release, compatibility and issue-tracking home for 5tratSmack.
 
+**[Visit 5trat.com](https://5trat.com)** for the coin, live completed-trade
+trend, mining overview and public network links.
+
 **[Read: What is 5TRAT?](docs/ABOUT-5TRAT.md)** explains why the coin was
 created, how home mining works, the difference between the wallet's estimated
 production cost and the completed-trade value, and how 5TRAT/DGB atomic swaps
