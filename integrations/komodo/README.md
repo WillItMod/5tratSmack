@@ -26,17 +26,18 @@ native DGB on the DigiByte chain and native 5TRAT on the 5TRAT chain.
 | Public coin configuration | Prepared in [`coins-entry.json`](coins-entry.json) |
 | 512 px PNG icon | Prepared in [`icons/5TRAT.png`](icons/5TRAT.png) |
 | Public source | Live |
-| Public explorer | Live and synced |
-| Electrum server 1 | Live: TCP and secure WebSocket |
-| Electrum server 2 | Live for staging: separate `.44` node backend over an outbound-only encrypted tunnel |
+| Public explorers | Two live, synced and independently hosted endpoints |
+| Electrum server 1 | Live on OVH: TCP and secure WebSocket |
+| Electrum server 2 | Live on Hetzner: TCP and secure WebSocket, backed by an independent full node |
 | BIP44/SLIP-0044 path | `m/44'/5755'`; [registration PR submitted](https://github.com/satoshilabs/slips/pull/2037) |
 | Public five-transaction swap proof | Captured with live explorer links |
-| Upstream `KomodoPlatform/coins` PR | [Draft #17 submitted](https://github.com/KomodoPlatform/coins/pull/17); merge held for independent second ingress |
+| Upstream `KomodoPlatform/coins` PR | [Draft #17 submitted](https://github.com/KomodoPlatform/coins/pull/17); independent second ingress is now live |
 
-The staging pair indexes two separate 5TRAT nodes. Both public ingress paths
-currently use the OVH VPS, however, so this does not yet provide a separate
-hosting failure domain. A second public host or provider remains the production
-requirement before the upstream listing is submitted.
+The two public Electrum services now run on independent full nodes, public IPs
+and hosting providers. The OVH and Hetzner hosts each expose their own
+read-only explorer and Electrum index while independently validating the same
+5TRAT chain. Losing either provider no longer removes every public wallet
+ingress.
 
 ## Network parameters
 
