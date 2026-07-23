@@ -19,6 +19,34 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.23] - 2026-07-23
+
+### Added
+
+- Added two independent DNS chain seeds, DEX entry points, Electrum services,
+  explorers and anonymous completed-trade relays across OVH and Hetzner.
+- Added the DNS seeds directly to 5TRAT Core as bootstrap hints. They introduce
+  peers only; every node continues to validate the complete chain locally.
+- Published the official 5TRAT coin site and linked it separately from the
+  5tratumOS operating-system site.
+
+### Improved
+
+- Completed trades are now reported to both anonymous relays. Every node
+  fetches, merges and deduplicates both tapes, so one unavailable VPS no longer
+  removes network-wide trade history.
+- The shared trade relays now permit read-only browser access for the live,
+  completed-trade trend on the public coin site.
+
+### Preserved
+
+- Wallets, balances, blockchain data, pool history, orders and active swaps are
+  retained during the update.
+- Wallet addresses, usernames, node identities, passwords and private keys are
+  never published to the completed-trade tape.
+
+- [DEV release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.23-dev)
+
 ## [0.10.22] - 2026-07-23
 
 ### Fixed

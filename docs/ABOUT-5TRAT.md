@@ -35,7 +35,7 @@ Every accepted proof is classified automatically:
 
 From block 280, a block pays 4.75 5TRAT immediately. Pink adds a 0.50 5TRAT
 bonus in the following block, while Gold adds 2.00 5TRAT. Across the
-probabilities, the long-term expected reward remains 5 5TRAT per block.
+probabilities, the long-term expected reward remains 5.00 5TRAT per block.
 
 The proof tiers are not separate mining lanes. They all use the same blockchain
 target, and network difficulty affects all miners and all tiers together.
