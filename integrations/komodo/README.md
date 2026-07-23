@@ -31,7 +31,7 @@ native DGB on the DigiByte chain and native 5TRAT on the 5TRAT chain.
 | Electrum server 2 | Live on Hetzner: raw SSL and secure WebSocket, backed by an independent full node |
 | BIP44/SLIP-0044 path | `m/44'/5755'`; [registration PR submitted](https://github.com/satoshilabs/slips/pull/2037) |
 | Public five-transaction swap proof | Captured with live explorer links |
-| Upstream `KomodoPlatform/coins` PR | [#17 ready for review](https://github.com/KomodoPlatform/coins/pull/17) |
+| Upstream coin-registry PR | [`GLEECBTC/coins` #1903 ready for review](https://github.com/GLEECBTC/coins/pull/1903) |
 
 The two public Electrum services now run on independent full nodes, public IPs
 and hosting providers. The OVH and Hetzner hosts each expose their own
