@@ -31,7 +31,7 @@ native DGB on the DigiByte chain and native 5TRAT on the 5TRAT chain.
 | Electrum server 2 | Live for staging: separate `.44` node backend over an outbound-only encrypted tunnel |
 | BIP44/SLIP-0044 path | `m/44'/5755'`; [registration PR submitted](https://github.com/satoshilabs/slips/pull/2037) |
 | Public five-transaction swap proof | Captured with live explorer links |
-| Upstream `KomodoPlatform/coins` PR | Held until a second hosting failure domain is available |
+| Upstream `KomodoPlatform/coins` PR | [Draft #17 submitted](https://github.com/KomodoPlatform/coins/pull/17); merge held for independent second ingress |
 
 The staging pair indexes two separate 5TRAT nodes. Both public ingress paths
 currently use the OVH VPS, however, so this does not yet provide a separate
