@@ -19,6 +19,52 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.24] - 2026-07-24
+
+### Added
+
+- Moved native 5TRAT/DGB atomic swaps onto the established Komodo DeFi
+  Framework public network, using public network ID `6133` and the maintained
+  upstream KDF seed registry.
+- Added the official 5TRAT coin configuration to the upstream
+  [`GLEECBTC/coins` pull request #1903](https://github.com/GLEECBTC/coins/pull/1903).
+  External KDF wallets can use that definition after the upstream maintainers
+  merge it.
+
+### Improved
+
+- Ordinary app nodes now discover atomic-swap peers using outbound
+  connections. A DEX port forward, DEX UPnP mapping and public app endpoint are
+  no longer required.
+- Unmatched buy and sell offers retain their order ID, price, remaining
+  quantity and minimum fill during the network migration, then reappear on the
+  public orderbook automatically.
+- If an atomic swap is already in progress when the update arrives, KDF
+  temporarily resumes the previous network so the swap can complete or refund.
+  It restarts on the public network automatically after two clean settlement
+  checks.
+- The public VPS package now concentrates on chain seeds, explorers, Electrum
+  access and the anonymous completed-trade tape. KDF discovery no longer
+  depends on private 5TRAT DEX seed containers.
+
+### Verified
+
+- Completed a live 5TRAT/DGB atomic swap between two independent 5tratSmack
+  nodes on KDF network ID `6133`.
+- Moved a disposable live offer from the public network to the retired test
+  network and back. The identical offer and UUID returned to the public
+  orderbook, confirming that existing unmatched offers do not need deletion.
+- Published and verified AMD64 and ARM64 application images.
+
+### Preserved
+
+- Trading-wallet addresses, DGB and 5TRAT balances, encrypted recovery data,
+  unmatched offers and completed trade history are retained.
+- The mining wallet, blockchain, pool, mined-block history and consensus rules
+  are unchanged.
+
+- [DEV release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.24-dev)
+
 ## [0.10.23] - 2026-07-23
 
 ### Fixed

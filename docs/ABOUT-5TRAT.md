@@ -147,7 +147,6 @@ The public network is deliberately spread across two providers:
 | Service | Primary | Secondary |
 | --- | --- | --- |
 | Chain seed | `seed1.5trat.net:57555` | `seed2.5trat.net:57555` |
-| DEX peer | `dex1.5trat.net:30808` | `dex2.5trat.net:30808` |
 | Electrum | `electrum1.5trat.net:50001` | `electrum2.5trat.net:50001` |
 | Explorer | `https://explorer1.5trat.net/explorer/` | `https://explorer2.5trat.net/explorer/` |
 | Completed-trade relay | `https://market1.5trat.net/trade-tape/` | `https://market2.5trat.net/trade-tape/` |
@@ -155,3 +154,7 @@ The public network is deliberately spread across two providers:
 These are bootstrap and read-only discovery services, not authorities over the
 chain. Every full node validates consensus independently and continues using
 peer discovery after bootstrap.
+
+Atomic swaps use the public Komodo DeFi Framework network on net ID `6133`.
+Wallets discover the maintained upstream KDF seed nodes through outbound
+connections, so a home node does not need a DEX port forward.

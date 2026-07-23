@@ -55,7 +55,7 @@ volumes.
 | Web application | `http://HOST_IP:3015` | LAN only |
 | Miner Stratum | `stratum+tcp://HOST_IP:57557` | LAN only |
 | 5TRAT P2P | `HOST_IP:57555/TCP` | Optional inbound relay |
-| Trading mesh | `HOST_IP:30808/TCP` | Managed automatically when enabled |
+| Atomic swaps | outbound TCP `32326` | No inbound port forward required |
 | Wallet/node RPC | `127.0.0.1:57576` | Never forward |
 
 If automatic LAN-address discovery selects the wrong interface, download and
