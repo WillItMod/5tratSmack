@@ -19,6 +19,32 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.22] - 2026-07-23
+
+### Fixed
+
+- Fixed Explorer block navigation so `Locate` moves only the horizontal
+  active-chain strip. The surrounding Explorer page no longer shifts or
+  remains clipped to the left.
+- Empty, negative, fractional and oversized block heights are now rejected
+  before any chain request is made.
+- Fixed the Deep-Space Foundry mobile header so the app title and release
+  marker wrap cleanly inside narrow phone and tablet screens.
+
+### Verified
+
+- Rechecked every main tab in the original, HashWatcher and Deep-Space
+  Foundry themes at desktop, tablet and phone widths.
+- Wallet, node, pool, trade, updater, UPnP and mining-activation regression
+  tests continue to pass.
+
+### Preserved
+
+- Wallets, balances, blockchain data, pool history, orders and active swaps
+  are retained during the update.
+
+- [DEV release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.22-dev)
+
 ## [0.10.21] - 2026-07-22
 
 ### Added
