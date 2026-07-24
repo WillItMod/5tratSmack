@@ -1,8 +1,8 @@
-# 5tratSmack DEV changelog
+# 5tratSmack release changelog
 
 This file records the user-visible changes published through the 5tratumOS
-DEV Community App Store. It begins with the block-1000 DEV launch line and
-does not include the earlier private prototype builds.
+DEV and MAIN Community App Stores. It begins with the block-1000 DEV launch
+line and does not include the earlier private prototype builds.
 
 The changelog describes behaviour, compatibility and migration effects. It
 does not expose private credentials, signing material or restricted
@@ -10,7 +10,7 @@ application source.
 
 ## How this changelog is maintained
 
-- Every new DEV-store version must receive an entry here before it is
+- Every new DEV or MAIN store version must receive an entry here before it is
   published.
 - Entries are newest first and use the version shown by 5tratumOS.
 - Each entry records fixes, user-visible changes, compatibility changes and
@@ -18,6 +18,47 @@ application source.
 - Published entries remain unchanged except for factual corrections.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
+
+## [0.10.27] - 2026-07-24
+
+### Added
+
+- Added a portable wallet bridge for moving an encrypted deterministic wallet
+  between 5tratSmack and the local-only browser wallet on
+  [5trat.com](https://5trat.com/wallet). Standard node `.dat` backups remain
+  native 5tratSmack recovery files.
+- Added an in-app field guide under Settings, with direct links to the official
+  5TRAT website, public Explorer, browser wallet, network status and public
+  changelog.
+- Replaced the old top-block-winner display with the latest named Blue, Pink
+  and Gold winners.
+- Added the Wall of Hash strongest-proof table. Each personalised coinbase
+  name appears once, using its strongest accepted proof.
+
+### Changed
+
+- Removed public block-win totals from the leaderboard. The board now
+  celebrates proof quality without publishing how many blocks each person has
+  mined.
+- Separated estimated electricity production cost from traded market value in
+  the wallet. Electricity cost is labelled as the estimated cost to mine one
+  5TRAT, while market value comes only from completed public trades.
+- Improved portable-wallet downloads in Safari and preserved the intended
+  `.5tratwallet` filename.
+
+### Verified
+
+- Built and published matching native AMD64 and ARM64 application images.
+- Tested the field guide, tier-winner board and Wall of Hash on desktop and
+  mobile against the live chain.
+- Confirmed a clean browser console and passed the application feature suite.
+
+### Preserved
+
+- Consensus rules, five-minute block timing, tier rewards, balances, mining
+  history, open offers, active swaps and wallet backups are unchanged.
+- Core, ckpool, KDF and UPnP remain pinned to their existing verified runtime
+  images. Only the 5tratSmack application layer changes in this release.
 
 ## [0.10.26] - 2026-07-24
 
