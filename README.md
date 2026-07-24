@@ -3,7 +3,8 @@
 Public release, compatibility and issue-tracking home for 5tratSmack.
 
 **[Visit 5trat.com](https://5trat.com)** for the coin, live completed-trade
-trend, mining overview and public network links.
+trend, browser wallet, searchable Explorer, mempool history, mining overview
+and public network health.
 
 **[Read: What is 5TRAT?](docs/ABOUT-5TRAT.md)** explains why the coin was
 created, how home mining works, the difference between the wallet's estimated
@@ -17,12 +18,41 @@ native 5TRAT/DGB atomic-swap proof.
 **[DEV release changelog](CHANGELOG.md)** records every 5tratumOS DEV
 Community App Store version from the block-1000 launch line onwards.
 
-The application is available through the 5tratumOS DEV Community App Store and
-as a checksum-verified standalone Linux package for AMD64 and ARM64. The Linux
-package is also used by the Proxmox helper. This repository intentionally
-contains only public installers, compatibility metadata, checksums, release
-notes and issue tracking; the private application source is kept in a separate
+The application is available through the 5tratumOS MAIN Community App Store,
+with later test builds appearing in DEV first, and as a checksum-verified
+standalone Linux package for AMD64 and ARM64. The Linux package is also used by
+the Proxmox helper. The store channel is the maturity marker and the numeric
+version identifies the exact build. This repository intentionally contains
+only public installers, compatibility metadata, checksums, release notes and
+issue tracking; the private application source is kept in a separate
 restricted repository.
+
+## Public wallet, chain and market tools
+
+- **[Browser wallet](https://5trat.com/wallet):** creates or restores a
+  deterministic native 5TRAT wallet locally in the browser. Keys and recovery
+  words remain in page memory and are never submitted to the website.
+- **[Explorer](https://5trat.com/explorer):** scrolls through the active chain,
+  jumps directly to a height, loads older blocks on demand and opens full block
+  details.
+- **[Mempool history](https://5trat.com/mempool):** shows the current waiting
+  room and a persistent, paginated record of transactions later confirmed or
+  dropped. History begins when the public indexer feature is deployed; it does
+  not invent records for transactions observed before that point.
+- **[Network health](https://5trat.com/network):** probes both seeds,
+  explorers, Electrum services and anonymous completed-trade relays, including
+  reported height, provider lag, response time and last successful check.
+- **[Trade Pulse](https://5trat.com/trade):** uses completed trades only.
+  Open bids and asks cannot alter the public reference.
+
+The website and the next 5tratSmack build estimate network hashrate from the
+same 36-block realised-work window. The candidate is running on the private
+test node before its normal store release. This removes the earlier mismatch
+caused by the website inferring a rate from difficulty while the app used
+recent chain work.
+
+See **[Portable wallet format](docs/WALLET-PORTABILITY.md)** for the common
+encrypted `.5tratwallet` backup used by the browser wallet and 5tratSmack.
 
 ## Install on Linux
 

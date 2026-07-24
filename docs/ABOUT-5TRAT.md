@@ -147,7 +147,7 @@ The public network is deliberately spread across two providers:
 | Service | Primary | Secondary |
 | --- | --- | --- |
 | Chain seed | `seed1.5trat.net:57555` | `seed2.5trat.net:57555` |
-| Electrum | `electrum1.5trat.net:50001` | `electrum2.5trat.net:50001` |
+| Electrum | `electrum1.5trat.net:50002` | `electrum2.5trat.net:50002` |
 | Explorer | `https://explorer1.5trat.net/explorer/` | `https://explorer2.5trat.net/explorer/` |
 | Completed-trade relay | `https://market1.5trat.net/trade-tape/` | `https://market2.5trat.net/trade-tape/` |
 
