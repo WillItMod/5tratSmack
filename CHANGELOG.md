@@ -19,6 +19,30 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.28] - 2026-07-24
+
+### Fixed
+
+- Fixed an update-startup race that could open the 5TRAT Core JSON-RPC
+  endpoint in the 5tratSmack app window and display `JSONRPC server handles
+  only POST requests`.
+- Reasserted the declared 5tratSmack web UI port, `21226`, in both DEV and
+  MAIN store packages.
+- Paired the app refresh with 5tratumOS `v0.5.9`, which treats store-declared
+  UI ports as authoritative and rejects the JSON-RPC error response during UI
+  detection.
+
+### User action
+
+- Update 5tratumOS to `v0.5.9` on MAIN or `v0.5.9-dev` on DEV, then update
+  5tratSmack to `0.10.28` or `0.10.28-dev`.
+- No wallet restore, chain rebuild or mining configuration change is needed.
+
+### Preserved
+
+- Wallets, balances, blockchain data, pool settings, trade wallets, active
+  offers and consensus rules are unchanged.
+
 ## [0.10.27] - 2026-07-24
 
 ### Added
