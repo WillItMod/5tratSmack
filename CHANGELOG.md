@@ -55,6 +55,9 @@ application source.
   network and back. The identical offer and UUID returned to the public
   orderbook, confirming that existing unmatched offers do not need deletion.
 - Published and verified AMD64 and ARM64 application images.
+- Published matching AMD64 and ARM64 standalone Linux runtimes and the
+  Proxmox LXC installer. Standalone installations now join the same public KDF
+  network and use the same safe offer/swap migration as the DEV package.
 
 ### Preserved
 
@@ -64,6 +67,7 @@ application source.
   are unchanged.
 
 - [DEV release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.24-dev)
+- [Linux and Proxmox release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.10.24-linux)
 
 ## [0.10.23] - 2026-07-23
 
