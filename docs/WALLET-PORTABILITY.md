@@ -8,6 +8,12 @@ receive or retain the recovery words, private keys or passwords. The native
 application imports the envelope locally and performs a full chain rescan
 before presenting recovered history.
 
+The normal `5tratsmack-wallet-*.dat` export is a full native Core wallet
+database. It is not the portable format and the browser wallet cannot open it.
+Restore a `.dat` backup inside 5tratSmack, then use **Wallet → Portable
+browser-wallet backup** to create the `.5tratwallet` file used by the website.
+The `.dat` file never needs to be uploaded to a website or conversion service.
+
 ## Deterministic wallet
 
 - Recovery phrase: BIP39, 12 English words
