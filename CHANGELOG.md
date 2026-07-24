@@ -19,6 +19,41 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.10.26] - 2026-07-24
+
+### Changed
+
+- Promoted the tested 5tratSmack build to the MAIN Community Store as a
+  release candidate while retaining the DEV-channel build for earlier access.
+- Replaced remaining generic gold-five artwork with the approved 5TRAT coin
+  roundel, using the cracked dark coin, gold `5`, blue left arc and pink right
+  arc.
+- Added compact Blue, Pink and Gold 5TRAT seals to mined-block history without
+  crowding the block cards.
+- Reworded the optional development contribution to explain that it helps fund
+  the public seed nodes, market relays, explorers and other privately operated
+  infrastructure that keeps the network available.
+
+### Fixed
+
+- Restored direct browser access for standalone Linux and Proxmox deployments.
+  5tratumOS authentication remains in force when the app is installed through
+  5tratumOS.
+
+### Verified
+
+- Built and published matching AMD64 and ARM64 application images.
+- Rechecked the MAIN and DEV manifests, Compose files and runtime version
+  markers.
+- Smoke-tested the release-candidate application on the x86-64 5tratumOS test
+  host without replacing its live wallet or blockchain data.
+
+### Preserved
+
+- Consensus rules, the five-minute block target, tiered block rewards, wallet
+  balances, mining history, trade orders and atomic-swap data are unchanged.
+- Updating does not reset or replace node data.
+
 ## [0.10.24] - 2026-07-24
 
 ### Added
