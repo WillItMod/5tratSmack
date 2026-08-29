@@ -19,6 +19,49 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.11.9] - 2026-08-29
+
+### Security and privacy
+
+- Fixed **Your Private Activity** so orders, purchases and sales come only
+  from the isolated trading wallet on the current installation.
+- Removed automatic completed-swap publication. Global Trades is now a
+  read-only market-comparison view and never uploads local wallet history,
+  orders, addresses, receipts or payment identity.
+- Removed embedded development-fund, donation and fallback payout identities
+  from the application and pool runtime. The solo pool now starts only after
+  the local node validates the payout configured by that installation.
+- Retired legacy market-tape signing state; stale or unverified public data is
+  now rejected as a pricing guide.
+
+### Changed
+
+- Reworked Trade Pulse into separate **Global Trades**, **My Trades** and
+  **Compare** views. Charts use a bounded execution sequence so old and recent
+  trades remain readable without a stretched wall-clock timeline.
+- Kept global market totals and private-wallet totals separate; they are never
+  summed or presented as one wallet's activity.
+- Added a GLEEC Wallet & DEX information tab with static links and a clear
+  distinction between an external GLEEC wallet and the local trading wallet.
+
+### Verified
+
+- Passed the privacy, wallet isolation, market-tape, payout-guard and Trade
+  Pulse test suite.
+- Built and inspected flattened single-layer AMD64 and ARM64 application and
+  ckpool images, including architecture-native startup checks.
+- Tested the release candidate on the remote 5tratumOS canary with its real
+  node, local payout and isolated trading wallet.
+
+### Preserved
+
+- Existing mining and trading wallets, balances, blockchain data, pool data,
+  open offers and completed local swap history remain attached during update.
+- The legacy app ID remains unchanged so DEV and MAIN upgrades use the same
+  installation and persistent volumes.
+
+- [RC1 release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.11.9-rc1)
+
 ## [0.10.28] - 2026-07-24
 
 ### Fixed
