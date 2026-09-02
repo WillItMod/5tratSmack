@@ -19,6 +19,63 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.11.10] - 2026-09-02
+
+### Fixed
+
+- Fixed delayed Pink and Gold jackpot coinbases so the following block pays
+  the previous winner's bonus to the previous payout script while output zero
+  remains the current miner's reward.
+- Added fail-closed validation for missing, malformed, oversized or otherwise
+  unsafe delayed-jackpot metadata. An unsafe template is rejected instead of
+  silently redirecting or dropping a payout.
+- Kept ordinary Blue templates on the single-miner path.
+- Kept the last-known fiat value visible when its completed-trade reference is
+  stale, labelled it clearly as last known, and excluded it from order pricing
+  and projected market revenue.
+- Made rejected block candidates visible in retained pool history, including
+  the node rejection reason when ckpool reports one.
+- Rebuilt block history from the complete retained ckpool log on a cold replay,
+  then resumed from a durable bounded cursor instead of losing older wins.
+- Required a fresh process acknowledgement before a pool or node restart is
+  shown as complete. Pool acknowledgements must match the exact saved config.
+- Probed the Stratum listener for readiness so stale worker statistics cannot
+  make a stopped pool appear open.
+
+### Reliability and performance
+
+- Replaced repeated full-log work with bounded incremental parsing and cached
+  recent share-log discovery, reducing steady-state CPU and filesystem I/O.
+- Added unique atomic state-file replacements, locked read/modify/write updates,
+  and merge-on-latest history settings to prevent concurrent state loss.
+
+### Security and privacy
+
+- Preserved the `0.11.9` payment-identity scrub in the newly source-built pool
+  image and its matching public GPLv3 corresponding-source archive.
+- Kept the local payout-address validation gate. No development-fund, donation
+  or fallback payment identity is introduced by this release.
+
+### Release gates
+
+- Publication is gated on native AMD64 and ARM64 builds of application
+  `0.11.10` and ckpool `0.11.3`, including OCI provenance and SBOM checks.
+- The DEV candidate must use commit-bound tags and immutable index digests.
+  MAIN may promote only those same tested digests, without rebuilding.
+- Every runtime image in the store recipes must be pinned by its multi-
+  architecture OCI index digest. The ckpool binary must not be released before
+  its checksum-matched corresponding source is public.
+
+### Preserved
+
+- Wallets, balances, blockchain data, pool configuration and history, trading
+  wallets, open offers and completed local swap history remain attached during
+  update. No chain reindex or wallet restore is required.
+- The existing app ID, service ports, volumes, network identity and consensus
+  configuration remain unchanged.
+
+- [RC1 corresponding-source artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.11.10-rc1)
+
 ## [0.11.9] - 2026-08-29
 
 ### Security and privacy
