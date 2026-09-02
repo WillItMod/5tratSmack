@@ -87,7 +87,7 @@ application source.
 - The existing app ID, service ports, volumes, network identity and consensus
   configuration remain unchanged.
 
-- [RC1 corresponding-source artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.11.10-rc1)
+- [RC2 corresponding-source artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.11.10-rc2)
 
 ## [0.11.9] - 2026-08-29
 
