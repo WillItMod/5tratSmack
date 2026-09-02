@@ -19,6 +19,47 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.11.11] - 2026-09-02
+
+### Fixed
+
+- Fixed the in-app update check on DEV installations. It now refreshes and
+  reads the explicitly selected DEV catalogue instead of trusting a generic
+  installed-app response that could inherit the system's MAIN default and
+  report the older MAIN release.
+- Kept the update decision fail-safe: a malformed or unverified DEV catalogue
+  cannot advertise an update, and an installed version newer than the DEV
+  catalogue is identified as newer rather than offered a downgrade.
+- Corrected prerelease comparison so numeric identifiers sort numerically
+  (for example, `rc2` precedes `rc10`) while build metadata does not change
+  version precedence.
+
+### Verified
+
+- Installed the exact `0.11.11` DEV candidate on the production-like AMD64
+  5tratumOS host and confirmed the app reports installed and latest DEV
+  versions as `0.11.11`.
+- Confirmed node, wallet, chain-template, Stratum and worker health after the
+  update, with accepted shares continuing and no rejected shares.
+- Confirmed GBP and USD indicated values update with their selected currency,
+  local activity remains private to the installation, the global view exposes
+  no wallet addresses, and the disclosed 5% development contribution remains
+  enabled and acknowledged by the pool.
+
+### Release scope
+
+- This is an application-only release. CKPool remains byte-for-byte unchanged
+  at `0.11.3`; its previously published GPLv3 corresponding-source archive is
+  attached again for completeness.
+- The stable application tag was promoted from the exact DEV-tested
+  multi-architecture digest without rebuilding. Both AMD64 and ARM64 images
+  include SBOM and SLSA provenance.
+- Existing wallets, balances, blockchain data, pool settings and history,
+  trading wallets, open offers and completed local swap history remain
+  attached. No chain reindex or wallet restore is required.
+
+- [Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.11.11)
+
 ## [0.11.10] - 2026-09-02
 
 ### Fixed
