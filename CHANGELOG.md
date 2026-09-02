@@ -30,6 +30,17 @@ application source.
   unsafe delayed-jackpot metadata. An unsafe template is rejected instead of
   silently redirecting or dropping a payout.
 - Kept ordinary Blue templates on the single-miner path.
+- Restored the transparent 0.11.8 development contribution: it is enabled by
+  default at 5%, remains adjustable from 1% to 50%, and can be explicitly
+  disabled in Pool settings. It is a separate coinbase output and never grants
+  the app access to spend wallet funds.
+- Since 0.11.9 removed its saved percentage and opt-out flag, upgrades from
+  0.11.9 return to the disclosed 5% default; users can then adjust or disable it
+  again in Pool settings.
+- Combined the contribution with delayed jackpots safely: the previous
+  winner's Pink or Gold bonus remains exact and untaxed, while the contribution
+  applies only to the current finder's remaining reward and output zero stays
+  assigned to the current miner.
 - Kept the last-known fiat value visible when its completed-trade reference is
   stale, labelled it clearly as last known, and excluded it from order pricing
   and projected market revenue.
@@ -53,8 +64,10 @@ application source.
 
 - Preserved the `0.11.9` payment-identity scrub in the newly source-built pool
   image and its matching public GPLv3 corresponding-source archive.
-- Kept the local payout-address validation gate. No development-fund, donation
-  or fallback payment identity is introduced by this release.
+- Kept the local payout-address validation gate. The one intentionally public
+  development-fund destination is disclosed in Pool settings; private trading
+  wallet identities and unrelated upstream fallback/donation identities are
+  not embedded or published.
 
 ### Release gates
 
