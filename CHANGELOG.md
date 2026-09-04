@@ -19,6 +19,63 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.11.12] - 2026-09-04
+
+### Reliability and performance
+
+- Paced background node-status refreshes and reused short-lived status
+  snapshots so simultaneous dashboard and API requests no longer repeat the
+  same node RPC and filesystem work.
+- Changed Explorer persistence to incremental forward indexing with an
+  append-only recovery journal and periodic atomic checkpoints, avoiding a
+  full index rewrite for every new block.
+- Replaced repeated CKPool share-log rescans with bounded incremental reads,
+  durable cursors and a bounded recent-share cache. Active mining remains
+  responsive while idle installations perform substantially less CPU and
+  filesystem work.
+
+### Safety
+
+- Made share-log accounting resilient to app restarts, partial records, log
+  truncation or replacement, and short chain reorganisations. An uncertain
+  file snapshot is retried without advancing its accounting cursor.
+- Kept adaptive hashrate fail-safe: when the complete recent time window
+  cannot be proved, the app uses CKPool's native figure instead of publishing
+  an incomplete calculation.
+- Protected Explorer recovery from stale journal records left across a
+  downgrade or interrupted checkpoint, without modifying node, wallet or
+  blockchain data.
+
+### Preserved
+
+- **Your Private Activity** remains limited to the isolated trading wallet on
+  the current installation. Global Trades does not expose or fall back to
+  local wallet addresses or history.
+- Selected fiat display values, including GBP and USD, remain available and
+  retain the last-known-value labelling and pricing safeguards introduced in
+  the preceding releases.
+- The disclosed development contribution remains enabled by default at 5%,
+  adjustable from 1% to 50%, and explicitly optional in Pool settings.
+  Existing saved opt-outs remain disabled.
+- Existing wallets, balances, blockchain data, pool settings and history,
+  trading-wallet data, open offers and completed local swap history remain
+  attached. No chain reindex or wallet restore is required.
+
+### Release identity
+
+- This is an application-only release. CKPool remains byte-for-byte unchanged
+  at `0.11.3`; its existing GPLv3 corresponding-source archive has SHA-256
+  `7e3a500eb2794e56cfd304a9bb7f2739acd3e096af976702e7afd4fd0e01413b`.
+- Exact application source revision:
+  `72eed58ad52274c6b6bf409260a3fc6deca75f2a`.
+- Multi-architecture application candidate:
+  `ghcr.io/willitmod/5tratsmack-app:0.11.12-rc.72eed58ad522` at
+  `sha256:56887fa21813a2e3dc29a9f386d4c0cbc8053cbdc14d01d6b19cf88c5105d05f`.
+  It contains native AMD64 and ARM64 images with SBOM and SLSA provenance;
+  stable publication must promote this exact digest without rebuilding.
+
+- [Release artefacts](https://github.com/WillItMod/5tratSmack/releases/tag/v0.11.12)
+
 ## [0.11.11] - 2026-09-02
 
 ### Fixed
