@@ -19,6 +19,40 @@ application source.
 - Release artefacts and public corresponding-source archives are linked where
   they exist.
 
+## [0.11.13] - 2026-09-06
+
+### Wallet recovery
+
+- Quarterly reminders check the main and trading wallets separately, with a
+  seven-day snooze and permanent access through wallet security tools.
+- Test saved wallet passwords and read back a saved recovery file without
+  restoring, replacing a wallet or moving funds. Downloading alone does not
+  complete the check. Password changes require a fresh password test.
+- Recovery exports default to encryption with an independent backup passphrase.
+  Optional unencrypted exports require a clear warning acknowledgement and are
+  labelled UNENCRYPTED. Anyone with such a file can spend the coins.
+- Both recovery formats can restore with a new wallet/control password. Native
+  .dat backups still require the original wallet password. Existing encrypted
+  recovery files and wallet-replacement/trading safety gates remain supported.
+
+### Additional fixes and maintenance
+
+- Preserve inactive private descriptors, complete address ranges and next address
+  indices above 1,000 when exporting/restoring portable main-wallet files.
+- Compare derived wallet ownership when reading files back, including Core's
+  different equivalent descriptor representations.
+- Report unencrypted trading backups accurately and keep trading-control and
+  backup passphrase labels separate.
+- Redact recovery download tokens from HTTP logs and report relock failures
+  instead of claiming the wallet relocked successfully.
+- Update the cryptography runtime dependency to 50.0.1 and strengthen recovery
+  and private/public market-guide regression coverage.
+
+Application-only update for AMD64 and ARM64. Existing wallets, blockchain, pool
+and trading data persist; no reindex is needed. Follow the
+[recovery-check guide](docs/RECOVERY-CHECKS.md) and test both saved backups after
+updating. Release assets: [v0.11.13](https://github.com/WillItMod/5tratSmack/releases/tag/v0.11.13).
+
 ## [0.11.12] - 2026-09-04
 
 ### Reliability and performance
