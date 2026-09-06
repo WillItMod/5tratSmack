@@ -27,6 +27,13 @@ only public installers, compatibility metadata, checksums, release notes and
 issue tracking; the private application source is kept in a separate
 restricted repository.
 
+## Wallet recovery checks
+
+Version 0.11.13 adds quarterly password tests, saved-file read-back and a choice
+of encrypted or explicitly acknowledged unencrypted recovery files for both
+wallets. [Read the recovery-check guide](docs/RECOVERY-CHECKS.md) before choosing
+backup protection.
+
 ## Public wallet, chain and market tools
 
 - **[Browser wallet](https://5trat.com/wallet):** creates or restores a
